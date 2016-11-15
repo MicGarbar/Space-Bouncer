@@ -4,6 +4,7 @@ import spaceBouncer.entity.features.PlayerFeatures;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
+import spaceBouncer.utility.maths.Matrix;
 import spaceBouncer.utility.maths.Vector;
 
 public class Player implements PlayerFeatures {
@@ -12,6 +13,8 @@ public class Player implements PlayerFeatures {
     private VertexArrayObject vao;
     private Shader shader;
     private Texture texture;
+
+    private int rot;
 
     public Player(){
         position = new Vector();
@@ -23,11 +26,13 @@ public class Player implements PlayerFeatures {
     }
 
     public void update(){
-
+        position.x += 0.00005f;
+        rot += 1;
     }
 
     public void render(){
         shader.activate();
+        shader.setMatrixUniform(modelMatrix, Matrix.translate(position).multiply(Matrix.rotate(rot)));
         texture.bind();
         vao.bind();
         vao.draw();

@@ -1,5 +1,6 @@
 package spaceBouncer.render;
 
+import spaceBouncer.utility.maths.Matrix;
 import spaceBouncer.utility.shaders.ShaderProgram;
 
 import static org.lwjgl.opengl.GL20.*;
@@ -27,6 +28,11 @@ public class Shader {
     public void setSamplerUniform(String name, int value){
         if(!shaderEnabled) activate();
         glUniform1i(getUniform(name), value);
+    }
+
+    public void setMatrixUniform(String name, Matrix value){
+        if(!shaderEnabled) activate();
+        glUniformMatrix4fv(getUniform(name), false, value.toFloatBuffer());
     }
 
     public void activate(){

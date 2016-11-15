@@ -6,6 +6,7 @@ public interface PlayerFeatures {
     String fragmentSource = "shader/fragment/player.frag";
     String textureSource = "resources/player.png";
     String sampler = "textureSampler";
+    String modelMatrix = "modelMatrix";
     int activeTexture = 1;
 
     float[] vertices = new float[]{
