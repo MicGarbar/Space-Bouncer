@@ -26,19 +26,6 @@ public class Matrix {
         return result;
     }
 
-    public static Matrix orthographic(float left, float right, float bottom, float top, float near, float far){
-        Matrix result = identity();
-
-        result.elements[0] = 2.0f / (right - left);
-        result.elements[5] = 2.0f / (top - bottom);
-        result.elements[10] = 2.0f / (near - far);
-        result.elements[12] = (left + right) / (left - right);
-        result.elements[13] = (bottom + top) / (bottom - top);
-        result.elements[14] = (far + near) / (far - near);
-
-        return result;
-    }
-
     public static Matrix translate(Vector vector){
         Matrix result = identity();
 

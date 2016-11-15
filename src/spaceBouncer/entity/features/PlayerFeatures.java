@@ -2,6 +2,8 @@ package spaceBouncer.entity.features;
 
 public interface PlayerFeatures {
 
+    float playerSize = 1.5f;
+
     String vertexSource = "shader/vertex/player.vert";
     String fragmentSource = "shader/fragment/player.frag";
     String textureSource = "resources/player.png";
@@ -10,10 +12,10 @@ public interface PlayerFeatures {
     int activeTexture = 1;
 
     float[] vertices = new float[]{
-            -0.5f, -0.5f, 0.2f,
-            -0.5f,  0.5f, 0.2f,
-            0.5f,  0.5f, 0.2f,
-            0.5f, -0.5f, 0.2f
+            -playerSize, -playerSize, 0.2f,
+            -playerSize,  playerSize, 0.2f,
+            playerSize,  playerSize, 0.2f,
+            playerSize, -playerSize, 0.2f
     };
 
     byte[] indices = new byte[]{
