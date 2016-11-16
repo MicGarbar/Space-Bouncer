@@ -2,6 +2,7 @@ package spaceBouncer.deploy;
 
 import org.lwjgl.glfw.GLFWVidMode;
 import spaceBouncer.entity.Player;
+import spaceBouncer.input.keyboard.KeyInput;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL.createCapabilities;
@@ -45,6 +46,8 @@ public class GameLoop implements Runnable {
         glfwShowWindow(windowID);
         createCapabilities();
 
+        glfwSetKeyCallback(windowID, new KeyInput());
+
         glActiveTexture(GL_TEXTURE1);
 
         glClearColor(0.8f, 0.9f, 0.4f, 1.0f);
@@ -56,8 +59,20 @@ public class GameLoop implements Runnable {
     public void run(){
         init();
 
+        long lastTime = System.nanoTime();
+        double timeInNano = 1000000000.0 / 60.0;
+        double deltaTime = 0.0;
+
         while(gameThread.isGameRunning()){
-            update();
+            long currentTime = System.nanoTime();
+            deltaTime += (currentTime - lastTime) / timeInNano;
+            lastTime = currentTime;
+
+            if(deltaTime >= 1.0){
+                update();
+                deltaTime--;
+            }
+
             render();
 
             if(glfwWindowShouldClose(windowID))

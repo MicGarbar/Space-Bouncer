@@ -9,19 +9,19 @@ public class ShaderProgram {
 
     private ShaderProgram(){}
 
-    public static int load(String vertPath, String fragPath){
-        String vertexSource = File.load(vertPath);
-        String fragmentSource = File.load(fragPath);
+    public static int load(String vertexPath, String fragmentPath){
+        String vertexSource = File.load(vertexPath);
+        String fragmentSource = File.load(fragmentPath);
         return create(vertexSource, fragmentSource);
     }
 
-    public static int create(String vert, String frag){
+    public static int create(String vertexSource, String fragmentSource){
         int programID = glCreateProgram();
         int vertexID = glCreateShader(GL_VERTEX_SHADER);
         int fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
 
-        glShaderSource(vertexID, vert);
-        glShaderSource(fragmentID, frag);
+        glShaderSource(vertexID, vertexSource);
+        glShaderSource(fragmentID, fragmentSource);
 
         glCompileShader(vertexID);
         if(glGetShaderi(vertexID, GL_COMPILE_STATUS) == GL_FALSE){

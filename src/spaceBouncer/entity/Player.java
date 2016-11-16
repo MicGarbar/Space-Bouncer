@@ -1,12 +1,16 @@
 package spaceBouncer.entity;
 
+import org.lwjgl.glfw.GLFWKeyCallback;
 import spaceBouncer.entity.features.PlayerFeatures;
+import spaceBouncer.input.keyboard.KeyInput;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
 import spaceBouncer.utility.maths.Matrix;
 import spaceBouncer.utility.maths.Vector;
 import spaceBouncer.utility.projections.Camera;
+
+import static org.lwjgl.glfw.GLFW.*;
 
 public class Player implements PlayerFeatures {
 
@@ -15,7 +19,9 @@ public class Player implements PlayerFeatures {
     private Shader shader;
     private Texture texture;
 
-    private int rot;
+    private int rot = 0;
+    private float deltaX = 0.0f;
+    private float deltaY = 0.0f;
 
     public Player(){
         position = new Vector();
@@ -24,12 +30,30 @@ public class Player implements PlayerFeatures {
         texture = new Texture(textureSource);
 
         shader.setSamplerUniform(sampler, activeTexture);
-        shader.setMatrixUniform("projectionMatrix", Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
+        shader.setMatrixUniform(projectionMatrix, Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
     }
 
     public void update(){
-        position.x += 0.00005f;
-        rot += 1;
+
+
+        position.x += deltaX;
+        position.y += deltaY;
+
+        if(KeyInput.isKeyDown(GLFW_KEY_UP)){
+            deltaY = 0.15f;
+        }
+        else if(KeyInput.isKeyDown(GLFW_KEY_LEFT)){
+            deltaX = -0.15f;
+            deltaY -= 0.001f;
+            rot += 10;
+        }
+        else if(KeyInput.isKeyDown(GLFW_KEY_RIGHT)){
+            deltaX = 0.15f;
+            deltaY -= 0.001f;
+            rot -= 10;
+        }
+
+        deltaY -= 0.01f;
     }
 
     public void render(){

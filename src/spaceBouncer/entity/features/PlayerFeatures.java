@@ -9,6 +9,7 @@ public interface PlayerFeatures {
     String textureSource = "resources/player.png";
     String sampler = "textureSampler";
     String modelMatrix = "modelMatrix";
+    String projectionMatrix = "projectionMatrix";
     int activeTexture = 1;
 
     float[] vertices = new float[]{
