@@ -48,7 +48,7 @@ public class GameLoop implements Runnable {
 
         glfwSetKeyCallback(windowID, new KeyInput());
 
-        glActiveTexture(GL_TEXTURE1);
+        glActiveTexture(GL_TEXTURE0);
 
         glClearColor(0.8f, 0.9f, 0.4f, 1.0f);
 
@@ -60,15 +60,15 @@ public class GameLoop implements Runnable {
         init();
 
         long lastTime = System.nanoTime();
-        double timeInNano = 1000000000.0 / 60.0;
-        double deltaTime = 0.0;
+        float timeInNano = 1000000000.0f / 60.0f;
+        float deltaTime = 0.0f;
 
         while(gameThread.isGameRunning()){
             long currentTime = System.nanoTime();
             deltaTime += (currentTime - lastTime) / timeInNano;
             lastTime = currentTime;
 
-            if(deltaTime >= 1.0){
+            if(deltaTime >= 1.0f){
                 update();
                 deltaTime--;
             }

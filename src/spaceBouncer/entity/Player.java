@@ -1,6 +1,5 @@
 package spaceBouncer.entity;
 
-import org.lwjgl.glfw.GLFWKeyCallback;
 import spaceBouncer.entity.features.PlayerFeatures;
 import spaceBouncer.input.keyboard.KeyInput;
 import spaceBouncer.render.Shader;
@@ -19,7 +18,7 @@ public class Player implements PlayerFeatures {
     private Shader shader;
     private Texture texture;
 
-    private int rot = 0;
+    private int rotation = 0;
     private float deltaX = 0.0f;
     private float deltaY = 0.0f;
 
@@ -34,8 +33,6 @@ public class Player implements PlayerFeatures {
     }
 
     public void update(){
-
-
         position.x += deltaX;
         position.y += deltaY;
 
@@ -45,12 +42,12 @@ public class Player implements PlayerFeatures {
         else if(KeyInput.isKeyDown(GLFW_KEY_LEFT)){
             deltaX = -0.15f;
             deltaY -= 0.001f;
-            rot += 10;
+            rotation += 10;
         }
         else if(KeyInput.isKeyDown(GLFW_KEY_RIGHT)){
             deltaX = 0.15f;
             deltaY -= 0.001f;
-            rot -= 10;
+            rotation -= 10;
         }
 
         deltaY -= 0.01f;
@@ -58,7 +55,7 @@ public class Player implements PlayerFeatures {
 
     public void render(){
         shader.activate();
-        shader.setMatrixUniform(modelMatrix, Matrix.translate(position).multiply(Matrix.rotate(rot)));
+        shader.setMatrixUniform(modelMatrix, Matrix.translate(position).multiply(Matrix.rotate(rotation)));
         texture.bind();
         vao.bind();
         vao.draw();

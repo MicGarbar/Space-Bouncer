@@ -10,7 +10,7 @@ public interface PlayerFeatures {
     String sampler = "textureSampler";
     String modelMatrix = "modelMatrix";
     String projectionMatrix = "projectionMatrix";
-    int activeTexture = 1;
+    int activeTexture = 0;
 
     float[] vertices = new float[]{
             -playerSize, -playerSize, 0.2f,
