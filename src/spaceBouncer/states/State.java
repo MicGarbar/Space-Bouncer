@@ -3,11 +3,11 @@ package spaceBouncer.states;
 public enum State {
 
     MAIN_MENU,
-    TROPHOSPHERE,
+    TROPOSPHERE,
     STRATOSPHERE,
-    MEZOSPHERE,
-    TERMOSPHERE,
-    EGZOSPHERE,
+    MESOSPHERE,
+    THERMOSPHERE,
+    EXOSPHERE,
     SPACE
 
 }

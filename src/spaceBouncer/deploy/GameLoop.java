@@ -3,6 +3,7 @@ package spaceBouncer.deploy;
 import org.lwjgl.glfw.GLFWVidMode;
 import spaceBouncer.entity.Player;
 import spaceBouncer.input.keyboard.KeyInput;
+import spaceBouncer.states.Troposphere;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL.createCapabilities;
@@ -18,7 +19,7 @@ public class GameLoop implements Runnable {
     public static final String THREAD_NAME = "Space Bouncer Thread";
 
     private GameThread gameThread;
-    private Player player;
+    private Troposphere troposphere;
 
     private long windowID;
 
@@ -52,7 +53,7 @@ public class GameLoop implements Runnable {
 
         glClearColor(0.8f, 0.9f, 0.4f, 1.0f);
 
-        player = new Player();
+        troposphere = new Troposphere();
     }
 
     @Override
@@ -85,12 +86,12 @@ public class GameLoop implements Runnable {
 
     private void update(){
         glfwPollEvents();
-        player.update();
+        troposphere.update();
     }
 
     private void render(){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        player.render();
+        troposphere.render();
         glfwSwapBuffers(windowID);
     }
 
