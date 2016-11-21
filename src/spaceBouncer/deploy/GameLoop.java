@@ -1,8 +1,8 @@
 package spaceBouncer.deploy;
 
 import org.lwjgl.glfw.GLFWVidMode;
-import spaceBouncer.entity.Player;
 import spaceBouncer.input.keyboard.KeyInput;
+import spaceBouncer.render.BitmapFont;
 import spaceBouncer.states.Troposphere;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -20,6 +20,7 @@ public class GameLoop implements Runnable {
 
     private GameThread gameThread;
     private Troposphere troposphere;
+    private BitmapFont bitmapFont;
 
     private long windowID;
 
@@ -50,9 +51,9 @@ public class GameLoop implements Runnable {
         glfwSetKeyCallback(windowID, new KeyInput());
 
         glActiveTexture(GL_TEXTURE0);
+        glEnable(GL_BLEND);
 
-        glClearColor(0.8f, 0.9f, 0.4f, 1.0f);
-
+        bitmapFont = new BitmapFont();
         troposphere = new Troposphere();
     }
 
@@ -92,6 +93,7 @@ public class GameLoop implements Runnable {
     private void render(){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         troposphere.render();
+        bitmapFont.render();
         glfwSwapBuffers(windowID);
     }
 

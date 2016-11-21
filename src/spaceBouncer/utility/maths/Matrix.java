@@ -36,7 +36,7 @@ public class Matrix {
         return result;
     }
 
-    public static Matrix rotate(float angle){
+    public static Matrix rotateByZ(float angle){
         Matrix results = identity();
 
         float r = (float) Math.toRadians(angle);
@@ -47,6 +47,21 @@ public class Matrix {
         results.elements[1] = sin;
         results.elements[4] = -sin;
         results.elements[5] = cos;
+
+        return results;
+    }
+
+    public static Matrix rotateByY(float angle){
+        Matrix results = identity();
+
+        float r = (float) Math.toRadians(angle);
+        float cos = (float) Math.cos(r);
+        float sin = (float) Math.sin(r);
+
+        results.elements[0] = cos;
+        results.elements[2] = -sin;
+        results.elements[8] = sin;
+        results.elements[10] = cos;
 
         return results;
     }

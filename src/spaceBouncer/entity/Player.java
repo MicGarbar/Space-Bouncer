@@ -18,7 +18,8 @@ public class Player implements PlayerFeatures {
     private Shader shader;
     private Texture texture;
 
-    private int rotation = 0;
+    private int rotationY = 0;
+    private int rotationZ = 0;
     private float deltaX = 0.0f;
     private float deltaY = 0.0f;
 
@@ -42,12 +43,14 @@ public class Player implements PlayerFeatures {
         else if(KeyInput.isKeyDown(GLFW_KEY_LEFT)){
             deltaX = -0.15f;
             deltaY -= 0.001f;
-            rotation += 10;
+            rotationZ += 10;
+            rotationY = 180;
         }
         else if(KeyInput.isKeyDown(GLFW_KEY_RIGHT)){
             deltaX = 0.15f;
             deltaY -= 0.001f;
-            rotation -= 10;
+            rotationZ -= 10;
+            rotationY = -180;
         }
 
         deltaY -= 0.01f;
@@ -55,7 +58,9 @@ public class Player implements PlayerFeatures {
 
     public void render(){
         shader.activate();
-        shader.setMatrixUniform(modelMatrix, Matrix.translate(position).multiply(Matrix.rotate(rotation)));
+        shader.setMatrixUniform(modelMatrix, Matrix.translate(position)
+                .multiply(Matrix.rotateByZ(rotationZ))
+                .multiply(Matrix.rotateByY(rotationY)));
         texture.bind();
         vao.bind();
         vao.draw();

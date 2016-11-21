@@ -31,13 +31,13 @@ public class Troposphere implements TroposphereFeatures {
     }
 
     public void render(){
-        texture.bind();
         shader.activate();
+        texture.bind();
         vao.bind();
         vao.draw();
         vao.unbind();
-        shader.deactivate();
         texture.unbind();
+        shader.deactivate();
 
         player.render();
     }
