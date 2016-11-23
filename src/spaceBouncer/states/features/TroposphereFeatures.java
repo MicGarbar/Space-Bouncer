@@ -8,7 +8,7 @@ public interface TroposphereFeatures {
 
     String vertexSource = "shader/vertex/troposphere.vert";
     String fragmentSource = "shader/fragment/troposphere.frag";
-    String textureSource = "resources/troposphereAnimation/troposphere";
+    String textureSource = "resources/troposphereAnimation/troposphereSprite.png";
     String sampler = "textureSampler";
     String projectionMatrix = "projectionMatrix";
 

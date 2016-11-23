@@ -1,5 +1,7 @@
 package spaceBouncer.render;
 
+import spaceBouncer.deploy.GameLoop;
+
 public class Animation {
 
     private Texture[] frames;
@@ -19,15 +21,8 @@ public class Animation {
 
         this.frames = new Texture[amount];
         for(int i = 0; i < amount; i++){
-            this.frames[i] = new Texture(fileName + i + ".png");
+            this.frames[i] = new Texture(fileName, i* GameLoop.WIDTH, 0, GameLoop.WIDTH, GameLoop.HEIGHT);
         }
-
-        /*
-        this.frames[0] = new Texture("resources/troposphereAnimation/komp.png", 0, 0, 1280, 720);
-        this.frames[1] = new Texture("resources/troposphereAnimation/komp.png", 1280, 0, 1280, 720);
-        this.frames[2] = new Texture("resources/troposphereAnimation/komp.png", 0, 720, 1280, 720);
-        this.frames[3] = new Texture("resources/troposphereAnimation/komp.png", 1280, 720, 1280, 720);
-        */
     }
 
     public void bind(){
