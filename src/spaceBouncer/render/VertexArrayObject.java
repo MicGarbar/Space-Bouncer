@@ -79,5 +79,4 @@ public class VertexArrayObject {
         else
             glDrawArrays(GL_TRIANGLES, 0, indicesAmount);
     }
-
 }

@@ -1,6 +1,7 @@
 package spaceBouncer.states;
 
 import spaceBouncer.entity.Player;
+import spaceBouncer.render.Animation;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
@@ -11,14 +12,14 @@ public class Troposphere implements TroposphereFeatures {
 
     private VertexArrayObject vao;
     private Shader shader;
-    private Texture texture;
+    private Animation animation;
 
     private Player player;
 
     public Troposphere(){
         vao = new VertexArrayObject(vertices, indices, textureCoordinates);
         shader = new Shader(vertexSource, fragmentSource);
-        texture = new Texture(textureSource);
+        animation = new Animation(framesAmount, textureFps, textureSource);
 
         shader.setSamplerUniform(sampler, activeTexture);
         shader.setMatrixUniform(projectionMatrix, Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
@@ -32,11 +33,11 @@ public class Troposphere implements TroposphereFeatures {
 
     public void render(){
         shader.activate();
-        texture.bind();
+        animation.bind();
         vao.bind();
         vao.draw();
         vao.unbind();
-        texture.unbind();
+        animation.unbind();
         shader.deactivate();
 
         player.render();

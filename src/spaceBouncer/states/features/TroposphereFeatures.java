@@ -8,10 +8,13 @@ public interface TroposphereFeatures {
 
     String vertexSource = "shader/vertex/troposphere.vert";
     String fragmentSource = "shader/fragment/troposphere.frag";
-    String textureSource = "resources/troposphere.png";
+    String textureSource = "resources/troposphereAnimation/troposphere";
     String sampler = "textureSampler";
     String projectionMatrix = "projectionMatrix";
+
     int activeTexture = 0;
+    int framesAmount = 4;
+    double textureFps = 1.2;
 
     float[] vertices = new float[]{
             -16.0f, -16.0f * screenScaleFactor, 0.0f,
