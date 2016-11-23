@@ -15,8 +15,8 @@ public class GameLoop implements Runnable {
 
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 720;
-    public static final String TITLE = "Space Bouncer";
-    public static final String THREAD_NAME = "Space Bouncer Thread";
+    final String TITLE = "Space Bouncer";
+    final String THREAD_NAME = "Space Bouncer Thread";
 
     private GameThread gameThread;
     private Troposphere troposphere;

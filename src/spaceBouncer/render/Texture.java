@@ -17,8 +17,24 @@ public class Texture {
         textureID = loadTexture(filePath);
     }
 
+    public Texture(String filePath, int x, int y, int width, int height){
+        textureID = loadSubTexture(filePath, x, y, width, height);
+    }
+
+    private int loadSubTexture(String filePath, int x, int y, int width, int height){
+        BufferedImage image = Image.load(filePath);
+        BufferedImage subImage = image.getSubimage(x, y, width, height);
+
+        return getTextureInRGBA(subImage);
+    }
+
     private int loadTexture(String filePath){
         BufferedImage image = Image.load(filePath);
+
+        return getTextureInRGBA(image);
+    }
+
+    private int getTextureInRGBA(BufferedImage image){
         width = image.getWidth();
         height = image.getHeight();
 

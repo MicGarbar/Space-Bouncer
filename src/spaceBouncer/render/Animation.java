@@ -13,7 +13,7 @@ public class Animation {
     public Animation(int amount, double fps, String fileName){
         this.framePointer = 0;
         this.currentTime = 0;
-        this.lastTime = (double)System.nanoTime() / (double)1000000000L;
+        this.lastTime = (double)System.nanoTime() / (double)1000000000l;
         this.deltaTime = 0;
         this.fps = 1/fps;
 
@@ -21,10 +21,17 @@ public class Animation {
         for(int i = 0; i < amount; i++){
             this.frames[i] = new Texture(fileName + i + ".png");
         }
+
+        /*
+        this.frames[0] = new Texture("resources/troposphereAnimation/komp.png", 0, 0, 1280, 720);
+        this.frames[1] = new Texture("resources/troposphereAnimation/komp.png", 1280, 0, 1280, 720);
+        this.frames[2] = new Texture("resources/troposphereAnimation/komp.png", 0, 720, 1280, 720);
+        this.frames[3] = new Texture("resources/troposphereAnimation/komp.png", 1280, 720, 1280, 720);
+        */
     }
 
     public void bind(){
-        this.currentTime = (double)System.nanoTime() / (double)1000000000L;
+        this.currentTime = (double)System.nanoTime() / (double)1000000000l;
         this.deltaTime += currentTime - lastTime;
 
         if(deltaTime >= fps){
