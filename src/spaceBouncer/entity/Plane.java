@@ -1,7 +1,6 @@
 package spaceBouncer.entity;
 
-import spaceBouncer.entity.features.PlayerFeatures;
-import spaceBouncer.input.keyboard.KeyInput;
+import spaceBouncer.entity.features.PlaneFeatures;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
@@ -9,25 +8,20 @@ import spaceBouncer.utility.maths.Matrix;
 import spaceBouncer.utility.maths.Vector;
 import spaceBouncer.utility.projections.Camera;
 
-import static org.lwjgl.glfw.GLFW.*;
-
-public class Player implements PlayerFeatures {
+public class Plane implements PlaneFeatures {
 
     private Vector position;
     private VertexArrayObject vao;
     private Shader shader;
     private Texture texture;
 
+    private boolean start = false;
     private int rotationY = 0;
-    private int rotationZ = 0;
-    private float deltaX = 0.0f;
-    private float deltaY = 0.0f;
 
-    private float height = 0;
-    private float deltaH = 0;
+    private float deltaX = 0;
 
-    public Player(){
-        position = new Vector();
+    public Plane(){
+        position = new Vector(-20.0f, 7.0f);
         vao = new VertexArrayObject(vertices, indices, textureCoordinates);
         shader = new Shader(vertexSource, fragmentSource);
         texture = new Texture(textureSource);
@@ -37,34 +31,15 @@ public class Player implements PlayerFeatures {
     }
 
     public void update(){
-        position.x += deltaX;
-        position.y += deltaY;
-        height += deltaH;
-
-        if(KeyInput.isKeyDown(GLFW_KEY_UP)){
-            deltaY = 0.15f;
-            deltaH = 0.08f;
+        if(start){
+            position.x += deltaX;
+            position.y = (float) Math.sin(position.x) + 5.0f;
         }
-        else if(KeyInput.isKeyDown(GLFW_KEY_LEFT)){
-            deltaX = -0.15f;
-            deltaY -= 0.001f;
-            rotationZ = 20;
-            deltaH = 0;
-        }
-        else if(KeyInput.isKeyDown(GLFW_KEY_RIGHT)){
-            deltaX = 0.15f;
-            deltaY -= 0.001f;
-            rotationZ = -20;
-            deltaH = 0;
-        }
-
-        deltaY -= 0.01f;
     }
 
     public void render(){
         shader.activate();
         shader.setMatrixUniform(modelMatrix, Matrix.translate(position)
-                .multiply(Matrix.rotateByZ(rotationZ))
                 .multiply(Matrix.rotateByY(rotationY)));
         texture.bind();
         vao.bind();
@@ -74,8 +49,20 @@ public class Player implements PlayerFeatures {
         shader.deactivate();
     }
 
-    public int getHeight(){
-        return (int) this.height;
+    public void setStart(boolean start){
+        this.start = start;
+    }
+
+    public void setRotationY(int rotationY){
+        this.rotationY = rotationY;
+    }
+
+    public void setPosition(Vector position){
+        this.position = position;
+    }
+
+    public void setDeltaX(float deltaX){
+        this.deltaX = deltaX;
     }
 
 }

@@ -37,12 +37,10 @@ public class BitmapFont {
         glBindTexture(GL_TEXTURE_2D, 0);
     }
 
-    public void render(){
+    public void render(String stringToRender){
         renderFontBackground();
 
-        renderString("WYNIK: 460", fontTexture, 16, -0.9f, -0.35f, 0.1f, 0.1f);
-        renderString("WYSOKOSC: 3000m", fontTexture, 16, -0.9f, -0.4f, 0.1f, 0.1f);
-        renderString("CEL: NAJWYZSZY SZCZYT EUROPY", fontTexture, 16, -0.9f, -0.45f, 0.1f, 0.1f);
+        renderString(stringToRender + " m", fontTexture, 16, 0.6f, 0.35f, 0.15f, 0.15f);
     }
 
     private void renderFontBackground() {
@@ -51,10 +49,10 @@ public class BitmapFont {
         glColor4f(0, 0, 0, 0.4f);
 
         glBegin(GL_QUADS);
-        glVertex2f(-0.95f, -0.55f);
-        glVertex2f(0.1f, -0.55f);
-        glVertex2f(0.1f, -0.92f);
-        glVertex2f(-0.95f, -0.92f);
+        glVertex2f(0.55f, 0.92f);
+        glVertex2f(0.97f, 0.92f);
+        glVertex2f(0.97f, 0.62f);
+        glVertex2f(0.55f, 0.62f);
         glEnd();
     }
 

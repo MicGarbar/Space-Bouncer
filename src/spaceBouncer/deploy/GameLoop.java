@@ -24,6 +24,8 @@ public class GameLoop implements Runnable {
 
     private long windowID;
 
+    private int num = 0;
+
     private void start(){
         gameThread = new GameThread(this, THREAD_NAME);
         gameThread.start();
@@ -93,7 +95,7 @@ public class GameLoop implements Runnable {
     private void render(){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         troposphere.render();
-        bitmapFont.render();
+        bitmapFont.render(String.valueOf(troposphere.getPlayerHeight()));
         glfwSwapBuffers(windowID);
     }
 

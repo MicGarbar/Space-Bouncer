@@ -21,7 +21,7 @@ public class Animation {
 
         this.frames = new Texture[amount];
         for(int i = 0; i < amount; i++){
-            this.frames[i] = new Texture(fileName, i* GameLoop.WIDTH, 0, GameLoop.WIDTH, GameLoop.HEIGHT);
+            this.frames[i] = new Texture(fileName, i * GameLoop.WIDTH, 0, GameLoop.WIDTH, GameLoop.HEIGHT);
         }
     }
 
