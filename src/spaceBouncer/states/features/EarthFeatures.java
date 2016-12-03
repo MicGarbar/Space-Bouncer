@@ -5,14 +5,14 @@ import spaceBouncer.utility.maths.Vector;
 
 import java.util.Random;
 
-public interface TroposphereFeatures {
+public interface EarthFeatures {
 
     Random rand = new Random();
     float screenScaleFactor = (float) GameLoop.HEIGHT / (float) GameLoop.WIDTH;
 
-    String vertexSource = "shader/vertex/troposphere.vert";
-    String fragmentSource = "shader/fragment/troposphere.frag";
-    String textureSource = "resources/troposphere.png";
+    String vertexSource = "shader/vertex/earth.vert";
+    String fragmentSource = "shader/fragment/earth.frag";
+    String textureSource = "resources/earth.png";
     String sampler = "textureSampler";
     String projectionMatrix = "projectionMatrix";
 

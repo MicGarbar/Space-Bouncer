@@ -43,7 +43,7 @@ public class Player implements PlayerFeatures {
 
         if(KeyInput.isKeyDown(GLFW_KEY_UP)){
             deltaY = 0.15f;
-            deltaH = 0.2f;
+            deltaH = 0.5f;
         }
         else if(KeyInput.isKeyDown(GLFW_KEY_LEFT)){
             deltaX = -0.15f;

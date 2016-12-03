@@ -2,9 +2,10 @@ package spaceBouncer.deploy;
 
 import org.lwjgl.glfw.GLFWVidMode;
 import spaceBouncer.entity.info.InfoPicture;
+import spaceBouncer.entity.info.WarningPicture;
 import spaceBouncer.input.keyboard.KeyInput;
 import spaceBouncer.render.BitmapFont;
-import spaceBouncer.states.Troposphere;
+import spaceBouncer.states.Earth;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL.createCapabilities;
@@ -20,9 +21,10 @@ public class GameLoop implements Runnable {
     final String THREAD_NAME = "Space Bouncer Thread";
 
     private GameThread gameThread;
-    private Troposphere troposphere;
+    private Earth earth;
     private BitmapFont bitmapFont;
     private InfoPicture infoPicture;
+    private WarningPicture warningPicture;
 
     private long windowID;
 
@@ -56,8 +58,9 @@ public class GameLoop implements Runnable {
         glEnable(GL_BLEND);
 
         bitmapFont = new BitmapFont();
-        troposphere = new Troposphere();
+        earth = new Earth();
         infoPicture = new InfoPicture();
+        warningPicture = new WarningPicture();
     }
 
     @Override
@@ -90,17 +93,19 @@ public class GameLoop implements Runnable {
 
     private void update(){
         glfwPollEvents();
-        troposphere.update();
-        infoPicture.setPicturePointer(troposphere.getPlayerHeight());
+        earth.update();
+        infoPicture.setPicturePointer(earth.getPlayerHeight());
+        warningPicture.setPicturePointer(earth.getPlayerHeight());
         infoPicture.update();
+        warningPicture.update();
     }
 
     private void render(){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        troposphere.render();
-        bitmapFont.render(String.valueOf(troposphere.getPlayerHeight()));
+        earth.render();
+        bitmapFont.render(String.valueOf(earth.getPlayerHeight()));
         infoPicture.render();
-
+        warningPicture.render();
         glfwSwapBuffers(windowID);
     }
 

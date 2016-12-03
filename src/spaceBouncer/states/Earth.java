@@ -2,14 +2,13 @@ package spaceBouncer.states;
 
 import spaceBouncer.entity.Player;
 import spaceBouncer.entity.generators.PlaneGenerator;
-import spaceBouncer.entity.info.InfoPicture;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
-import spaceBouncer.states.features.TroposphereFeatures;
+import spaceBouncer.states.features.EarthFeatures;
 import spaceBouncer.utility.projections.Camera;
 
-public class Troposphere implements TroposphereFeatures {
+public class Earth implements EarthFeatures {
 
     private VertexArrayObject vao;
     private Shader shader;
@@ -19,7 +18,7 @@ public class Troposphere implements TroposphereFeatures {
 
     private PlaneGenerator planeGenerator;
 
-    public Troposphere(){
+    public Earth(){
         vao = new VertexArrayObject(vertices, indices, textureCoordinates);
         shader = new Shader(vertexSource, fragmentSource);
         texture = new Texture(textureSource);

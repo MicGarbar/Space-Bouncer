@@ -15,7 +15,7 @@ public class InfoPicture implements InfoPictureFeatures {
     private int picturePointer;
 
     public InfoPicture(){
-        texture = new Texture(plainTextureSoure);
+        texture = new Texture(plainTextureSource);
         vao = new VertexArrayObject(vertices, indices, textureCoordinates);
         shader = new Shader(vertexSource, fragmentSource);
 
