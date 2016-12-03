@@ -1,16 +1,12 @@
 package spaceBouncer.states;
 
-import spaceBouncer.entity.Plane;
 import spaceBouncer.entity.Player;
+import spaceBouncer.entity.generators.PlaneGenerator;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
 import spaceBouncer.states.features.TroposphereFeatures;
-import spaceBouncer.utility.maths.Vector;
 import spaceBouncer.utility.projections.Camera;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Troposphere implements TroposphereFeatures {
 
@@ -19,7 +15,8 @@ public class Troposphere implements TroposphereFeatures {
     private Texture texture;
 
     private Player player;
-    private List<Plane> planeList;
+
+    private PlaneGenerator planeGenerator;
 
     public Troposphere(){
         vao = new VertexArrayObject(vertices, indices, textureCoordinates);
@@ -30,28 +27,23 @@ public class Troposphere implements TroposphereFeatures {
         shader.setMatrixUniform(projectionMatrix, Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 
         player = new Player();
-        planeList = new ArrayList<>();
-        // zamiast tego zrobić coś w stylu PlaneGenerator
-        // nastepnie to samo dla np. chmur, balonów i innych obiektów,
-        // które będą się powtarzać i z którymi będzie można wejść w kolizję
-        for(int i = 0; i < planesAmount; i++){
-            Plane plane = new Plane();
-            plane.setPosition(planePositionMilestones[i]);
-            plane.setRotationY(planeRotateMilestones[i]);
-            plane.setDeltaX(planeDeltaMilestones[i]);
-            planeList.add(plane);
-        }
+
+        planeGenerator = new PlaneGenerator.PlaneGeneratorBuilder()
+                .withPlanesAmount(planesAmount)
+                .withAttitudeMilestones(planeHeightMilestones)
+                .withRotateMilestones(planeRotateMilestones)
+                .withDeltaMilestones(planeDeltaMilestones)
+                .withPositionMilestones(planePositionMilestones)
+                .build();
     }
 
     public void update(){
-        for(int i = 0; i < planeList.size(); i++){
-            planeList.get(i).update();
-        }
+        planeGenerator.update();
         player.update();
 
         for(int i = 0; i < planesAmount; i++){
             if(player.getHeight() >= planeHeightMilestones[i]){
-                planeList.get(i).setStart(true);
+                planeGenerator.getPlaneList().get(i).setStart(true);
             }
         }
     }
@@ -65,9 +57,7 @@ public class Troposphere implements TroposphereFeatures {
         texture.unbind();
         shader.deactivate();
 
-        for(int i = 0; i < planeList.size(); i++){
-            planeList.get(i).render();
-        }
+        planeGenerator.render();
         player.render();
     }
 

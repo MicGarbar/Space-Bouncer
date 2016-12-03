@@ -3,8 +3,11 @@ package spaceBouncer.states.features;
 import spaceBouncer.deploy.GameLoop;
 import spaceBouncer.utility.maths.Vector;
 
+import java.util.Random;
+
 public interface TroposphereFeatures {
 
+    Random rand = new Random();
     float screenScaleFactor = (float) GameLoop.HEIGHT / (float) GameLoop.WIDTH;
 
     String vertexSource = "shader/vertex/troposphere.vert";
@@ -18,7 +21,12 @@ public interface TroposphereFeatures {
     int planesAmount = 5;
 
     int[] planeHeightMilestones = new int[]{
-            90, 193, 315, 881, 2000
+            // planes at an attitude between:
+            rand.nextInt(500) + 9000, // 9000 - 9500
+            rand.nextInt(300) + 9600, // 9600 - 9900
+            rand.nextInt(400) + 10000, // 10000 - 10400
+            rand.nextInt(500) + 10500, // 10500 - 11000
+            rand.nextInt(500) + 11100 // 11100 - 11500
     };
 
     int[] planeRotateMilestones = new int[]{
