@@ -1,6 +1,7 @@
 package spaceBouncer.deploy;
 
 import org.lwjgl.glfw.GLFWVidMode;
+import spaceBouncer.entity.info.InfoPicture;
 import spaceBouncer.input.keyboard.KeyInput;
 import spaceBouncer.render.BitmapFont;
 import spaceBouncer.states.Troposphere;
@@ -21,10 +22,9 @@ public class GameLoop implements Runnable {
     private GameThread gameThread;
     private Troposphere troposphere;
     private BitmapFont bitmapFont;
+    private InfoPicture infoPicture;
 
     private long windowID;
-
-    private int num = 0;
 
     private void start(){
         gameThread = new GameThread(this, THREAD_NAME);
@@ -57,6 +57,7 @@ public class GameLoop implements Runnable {
 
         bitmapFont = new BitmapFont();
         troposphere = new Troposphere();
+        infoPicture = new InfoPicture();
     }
 
     @Override
@@ -90,12 +91,16 @@ public class GameLoop implements Runnable {
     private void update(){
         glfwPollEvents();
         troposphere.update();
+        infoPicture.setPicturePointer(troposphere.getPlayerHeight());
+        infoPicture.update();
     }
 
     private void render(){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         troposphere.render();
         bitmapFont.render(String.valueOf(troposphere.getPlayerHeight()));
+        infoPicture.render();
+
         glfwSwapBuffers(windowID);
     }
 

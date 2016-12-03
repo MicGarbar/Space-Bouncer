@@ -2,6 +2,7 @@ package spaceBouncer.states;
 
 import spaceBouncer.entity.Player;
 import spaceBouncer.entity.generators.PlaneGenerator;
+import spaceBouncer.entity.info.InfoPicture;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;

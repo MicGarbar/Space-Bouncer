@@ -46,13 +46,13 @@ public class BitmapFont {
     private void renderFontBackground() {
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        glColor4f(0, 0, 0, 0.4f);
+        glColor4f(0, 0, 0, 0.6f);
 
         glBegin(GL_QUADS);
-        glVertex2f(0.55f, 0.92f);
-        glVertex2f(0.97f, 0.92f);
-        glVertex2f(0.97f, 0.62f);
-        glVertex2f(0.55f, 0.62f);
+        glVertex2f(0.45f, 1.0f);
+        glVertex2f(1.0f, 1.0f);
+        glVertex2f(1.0f, -1.0f);
+        glVertex2f(0.45f, -1.0f);
         glEnd();
     }
 
