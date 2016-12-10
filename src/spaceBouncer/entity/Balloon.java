@@ -18,6 +18,7 @@ public class Balloon implements BalloonFeatures{
     private boolean start = false;
 
     private float deltaX = 0;
+    private int triggerAttitude = 0;
 
     public Balloon(){
         position = new Vector(-20.0f, 7.0f);
@@ -53,8 +54,20 @@ public class Balloon implements BalloonFeatures{
         this.position = position;
     }
 
+    public Vector getPosition(){
+        return this.position;
+    }
+
     public void setDeltaX(float deltaX){
         this.deltaX = deltaX;
+    }
+
+    public void setTriggerAttitude(int attitude){
+        this.triggerAttitude = attitude;
+    }
+
+    public int getTriggerAttitude(){
+        return this.triggerAttitude;
     }
 
     public void setTexture(String texturePath){

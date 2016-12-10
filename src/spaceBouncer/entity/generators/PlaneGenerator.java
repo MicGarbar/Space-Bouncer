@@ -5,34 +5,25 @@ import spaceBouncer.utility.maths.Vector;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class PlaneGenerator {
 
-    private int planesAmount;
-    private int[] planesAttitudeMilestones;
-    private int[] planesRotateMilestones;
-    private float[] planesDeltaMilestones;
-    private Vector[] planesPositionMilestones;
-    private String[] planesTextures;
+    private Random random = new Random();
 
     private List<Plane> planeList;
 
-    public PlaneGenerator(int planesAmount, int[] planesAttitudeMilestones,
-                          int[] planesRotateMilestones, float[] planesDeltaMilestones,
-                          Vector[] planesPositionMilestones, String[] planesTextures) {
-        this.planesAmount = planesAmount;
-        this.planesAttitudeMilestones = planesAttitudeMilestones;
-        this.planesRotateMilestones = planesRotateMilestones;
-        this.planesDeltaMilestones = planesDeltaMilestones;
-        this.planesPositionMilestones = planesPositionMilestones;
-        this.planesTextures = planesTextures;
-
+    public PlaneGenerator(int planesAmount, String[] planesTextures) {
         planeList = new ArrayList<>();
+
         for(int i = 0; i < planesAmount; i++) {
             Plane plane = new Plane();
-            plane.setPosition(planesPositionMilestones[i]);
-            plane.setRotationY(planesRotateMilestones[i]);
-            plane.setDeltaX(planesDeltaMilestones[i]);
+            plane.setTriggerAttitude(random.nextInt(2000) + 9000);
+            plane.setRotationY(Math.random() > 0.5 ? 0 : 180);
+            plane.setPosition(new Vector(plane.getRotationY() == 0 ? -20.0f : 20.0f, random.nextFloat()*10));
+            plane.setDeltaX(plane.getRotationY() == 0 ?
+                    random.nextFloat()*0.1f :
+                    random.nextFloat()*0.1f - 0.1f);
             plane.setTexture((Math.random() > 0.5) ? planesTextures[0] : planesTextures[1]);
             planeList.add(plane);
         }
@@ -98,9 +89,7 @@ public class PlaneGenerator {
         }
 
         public PlaneGenerator build(){
-            PlaneGenerator planeGenerator = new PlaneGenerator(planesAmount,
-                    planesAttitudeMilestones, planesRotateMilestones,
-                    planesDeltaMilestones, planesPositionMilestones, planesTextures);
+            PlaneGenerator planeGenerator = new PlaneGenerator(planesAmount, planesTextures);
             return planeGenerator;
         }
     }

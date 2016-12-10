@@ -1,5 +1,7 @@
 package spaceBouncer.states;
 
+import spaceBouncer.entity.Balloon;
+import spaceBouncer.entity.Plane;
 import spaceBouncer.entity.Player;
 import spaceBouncer.entity.generators.BalloonGenerator;
 import spaceBouncer.entity.generators.PlaneGenerator;
@@ -32,18 +34,11 @@ public class Earth implements EarthFeatures {
 
         planeGenerator = new PlaneGenerator.PlaneGeneratorBuilder()
                 .withPlanesAmount(planesAmount)
-                .withAttitudeMilestones(planeHeightMilestones)
-                .withRotateMilestones(planeRotateMilestones)
-                .withDeltaMilestones(planeDeltaMilestones)
-                .withPositionMilestones(planePositionMilestones)
                 .withTextures(planeTextures)
                 .build();
 
         balloonGenerator = new BalloonGenerator.BalloonGeneratorBuilder()
                 .withBalloonsAmount(balloonsAmount)
-                .withAttitudeMilestones(balloonHeightMilestones)
-                .withDeltaMilestones(balloonDeltaMilestones)
-                .withPositionMilestones(balloonPositionMilestones)
                 .withTextures(balloonTextures)
                 .build();
     }
@@ -53,15 +48,15 @@ public class Earth implements EarthFeatures {
         planeGenerator.update();
         player.update();
 
-        for(int i = 0; i < planesAmount; i++){
-            if(player.getHeight() >= planeHeightMilestones[i]){
-                planeGenerator.getPlaneList().get(i).setStart(true);
+        for(Plane plane :  planeGenerator.getPlaneList()){
+            if(player.getHeight() >= plane.getTriggerAttitude()){
+                plane.setStart(true);
             }
         }
 
-        for(int i = 0; i < balloonsAmount; i++){
-            if(player.getHeight() >= balloonHeightMilestones[i]){
-                balloonGenerator.getBalloonList().get(i).setStart(true);
+        for(Balloon balloon : balloonGenerator.getBalloonList()){
+            if(player.getHeight() >= balloon.getTriggerAttitude()){
+                balloon.setStart(true);
             }
         }
     }

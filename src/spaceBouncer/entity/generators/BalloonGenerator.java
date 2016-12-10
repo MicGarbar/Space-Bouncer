@@ -5,31 +5,24 @@ import spaceBouncer.utility.maths.Vector;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class BalloonGenerator {
 
-    private int balloonAmount;
-    private int[] balloonsAttitudeMilestones;
-    private float[] balloonsDeltaMilestones;
-    private Vector[] balloonsPositionMilestones;
-    private String[] balloonsTextures;
+    private Random random = new Random();
 
     private List<Balloon> balloonList;
 
-    public BalloonGenerator(int balloonAmount, int[] balloonsAttitudeMilestones,
-                          float[] balloonsDeltaMilestones,
-                          Vector[] balloonsPositionMilestones, String[] balloonsTextures) {
-        this.balloonAmount = balloonAmount;
-        this.balloonsAttitudeMilestones = balloonsAttitudeMilestones;
-        this.balloonsDeltaMilestones = balloonsDeltaMilestones;
-        this.balloonsPositionMilestones = balloonsPositionMilestones;
-        this.balloonsTextures = balloonsTextures;
-
+    public BalloonGenerator(int balloonAmount, String[] balloonsTextures) {
         balloonList = new ArrayList<>();
+
         for(int i = 0; i < balloonAmount; i++) {
             Balloon balloon = new Balloon();
-            balloon.setPosition(balloonsPositionMilestones[i]);
-            balloon.setDeltaX(balloonsDeltaMilestones[i]);
+            balloon.setTriggerAttitude(random.nextInt(400) + 800);
+            balloon.setPosition(new Vector(Math.random() > 0.5 ? -20.0f : 20.0f, random.nextFloat()*10));
+            balloon.setDeltaX(balloon.getPosition().x < 0 ?
+                    random.nextFloat()*0.1f :
+                    random.nextFloat()*0.1f - 0.1f);
             balloon.setTexture((Math.random() > 0.5) ?
                     (Math.random() > 0.5 ? balloonsTextures[0] : balloonsTextures[1]) :
                     (Math.random() > 0.5 ? balloonsTextures[2] : balloonsTextures[3]));
@@ -91,9 +84,7 @@ public class BalloonGenerator {
         }
 
         public BalloonGenerator build(){
-            BalloonGenerator balloonGenerator = new BalloonGenerator(balloonsAmount,
-                    balloonsAttitudeMilestones,
-                    balloonsDeltaMilestones, balloonsPositionMilestones, balloonsTextures);
+            BalloonGenerator balloonGenerator = new BalloonGenerator(balloonsAmount, balloonsTextures);
             return balloonGenerator;
         }
     }
