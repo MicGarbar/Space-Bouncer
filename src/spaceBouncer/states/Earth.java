@@ -1,6 +1,7 @@
 package spaceBouncer.states;
 
 import spaceBouncer.entity.Player;
+import spaceBouncer.entity.generators.BalloonGenerator;
 import spaceBouncer.entity.generators.PlaneGenerator;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
@@ -17,6 +18,7 @@ public class Earth implements EarthFeatures {
     private Player player;
 
     private PlaneGenerator planeGenerator;
+    private BalloonGenerator balloonGenerator;
 
     public Earth(){
         vao = new VertexArrayObject(vertices, indices, textureCoordinates);
@@ -34,16 +36,32 @@ public class Earth implements EarthFeatures {
                 .withRotateMilestones(planeRotateMilestones)
                 .withDeltaMilestones(planeDeltaMilestones)
                 .withPositionMilestones(planePositionMilestones)
+                .withTextures(planeTextures)
+                .build();
+
+        balloonGenerator = new BalloonGenerator.BalloonGeneratorBuilder()
+                .withBalloonsAmount(balloonsAmount)
+                .withAttitudeMilestones(balloonHeightMilestones)
+                .withDeltaMilestones(balloonDeltaMilestones)
+                .withPositionMilestones(balloonPositionMilestones)
+                .withTextures(balloonTextures)
                 .build();
     }
 
     public void update(){
+        balloonGenerator.update();
         planeGenerator.update();
         player.update();
 
         for(int i = 0; i < planesAmount; i++){
             if(player.getHeight() >= planeHeightMilestones[i]){
                 planeGenerator.getPlaneList().get(i).setStart(true);
+            }
+        }
+
+        for(int i = 0; i < balloonsAmount; i++){
+            if(player.getHeight() >= balloonHeightMilestones[i]){
+                balloonGenerator.getBalloonList().get(i).setStart(true);
             }
         }
     }
@@ -57,6 +75,7 @@ public class Earth implements EarthFeatures {
         texture.unbind();
         shader.deactivate();
 
+        balloonGenerator.render();
         planeGenerator.render();
         player.render();
     }

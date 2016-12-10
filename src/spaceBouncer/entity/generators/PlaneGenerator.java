@@ -13,17 +13,19 @@ public class PlaneGenerator {
     private int[] planesRotateMilestones;
     private float[] planesDeltaMilestones;
     private Vector[] planesPositionMilestones;
+    private String[] planesTextures;
 
     private List<Plane> planeList;
 
     public PlaneGenerator(int planesAmount, int[] planesAttitudeMilestones,
                           int[] planesRotateMilestones, float[] planesDeltaMilestones,
-                          Vector[] planesPositionMilestones) {
+                          Vector[] planesPositionMilestones, String[] planesTextures) {
         this.planesAmount = planesAmount;
         this.planesAttitudeMilestones = planesAttitudeMilestones;
         this.planesRotateMilestones = planesRotateMilestones;
         this.planesDeltaMilestones = planesDeltaMilestones;
         this.planesPositionMilestones = planesPositionMilestones;
+        this.planesTextures = planesTextures;
 
         planeList = new ArrayList<>();
         for(int i = 0; i < planesAmount; i++) {
@@ -31,6 +33,7 @@ public class PlaneGenerator {
             plane.setPosition(planesPositionMilestones[i]);
             plane.setRotationY(planesRotateMilestones[i]);
             plane.setDeltaX(planesDeltaMilestones[i]);
+            plane.setTexture((Math.random() > 0.5) ? planesTextures[0] : planesTextures[1]);
             planeList.add(plane);
         }
     }
@@ -58,6 +61,7 @@ public class PlaneGenerator {
         private int[] planesRotateMilestones;
         private float[] planesDeltaMilestones;
         private Vector[] planesPositionMilestones;
+        private String[] planesTextures;
 
         public static PlaneGeneratorBuilder generator(){
             return new PlaneGeneratorBuilder();
@@ -88,9 +92,15 @@ public class PlaneGenerator {
             return this;
         }
 
+        public PlaneGeneratorBuilder withTextures(String[] planesTextures){
+            this.planesTextures = planesTextures;
+            return this;
+        }
+
         public PlaneGenerator build(){
             PlaneGenerator planeGenerator = new PlaneGenerator(planesAmount,
-                    planesAttitudeMilestones, planesRotateMilestones, planesDeltaMilestones, planesPositionMilestones);
+                    planesAttitudeMilestones, planesRotateMilestones,
+                    planesDeltaMilestones, planesPositionMilestones, planesTextures);
             return planeGenerator;
         }
     }

@@ -23,7 +23,7 @@ public class Player implements PlayerFeatures {
     private float deltaX = 0.0f;
     private float deltaY = 0.0f;
 
-    private float height = 0;
+    private float height = 20000.0f;
     private float deltaH = 0;
 
     public Player(){
@@ -43,19 +43,21 @@ public class Player implements PlayerFeatures {
 
         if(KeyInput.isKeyDown(GLFW_KEY_UP)){
             deltaY = 0.15f;
-            deltaH = 0.5f;
+            deltaH = 0.1f;
         }
         else if(KeyInput.isKeyDown(GLFW_KEY_LEFT)){
             deltaX = -0.15f;
             deltaY -= 0.001f;
-            rotationZ = 20;
             deltaH = 0;
+
+            rotationZ = 20;
         }
         else if(KeyInput.isKeyDown(GLFW_KEY_RIGHT)){
             deltaX = 0.15f;
             deltaY -= 0.001f;
-            rotationZ = -20;
             deltaH = 0;
+
+            rotationZ = -20;
         }
 
         deltaY -= 0.01f;
