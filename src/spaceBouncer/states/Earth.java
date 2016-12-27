@@ -1,9 +1,11 @@
 package spaceBouncer.states;
 
 import spaceBouncer.entity.Balloon;
+import spaceBouncer.entity.Cloud;
 import spaceBouncer.entity.Plane;
 import spaceBouncer.entity.Player;
 import spaceBouncer.entity.generators.BalloonGenerator;
+import spaceBouncer.entity.generators.CloudGenerator;
 import spaceBouncer.entity.generators.PlaneGenerator;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
@@ -21,6 +23,7 @@ public class Earth implements EarthFeatures {
 
     private PlaneGenerator planeGenerator;
     private BalloonGenerator balloonGenerator;
+    private CloudGenerator cloudGenerator;
 
     public Earth(){
         vao = new VertexArrayObject(vertices, indices, textureCoordinates);
@@ -41,9 +44,15 @@ public class Earth implements EarthFeatures {
                 .withBalloonsAmount(balloonsAmount)
                 .withTextures(balloonTextures)
                 .build();
+
+        cloudGenerator = new CloudGenerator.CloudGeneratorBuilder()
+                .withCloudsAmount(cloudsAmount)
+                .withTextures(cloudTextures)
+                .build();
     }
 
     public void update(){
+        cloudGenerator.update();
         balloonGenerator.update();
         planeGenerator.update();
         player.update();
@@ -59,6 +68,12 @@ public class Earth implements EarthFeatures {
                 balloon.setStart(true);
             }
         }
+
+        for(Cloud cloud : cloudGenerator.getCloudList()){
+            if(player.getHeight() >= cloud.getTriggerAttitude()){
+                cloud.setStart(true);
+            }
+        }
     }
 
     public void render(){
@@ -70,6 +85,7 @@ public class Earth implements EarthFeatures {
         texture.unbind();
         shader.deactivate();
 
+        cloudGenerator.render();
         balloonGenerator.render();
         planeGenerator.render();
         player.render();

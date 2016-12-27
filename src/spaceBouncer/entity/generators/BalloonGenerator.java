@@ -49,32 +49,10 @@ public class BalloonGenerator {
     public static final class BalloonGeneratorBuilder {
 
         private int balloonsAmount;
-        private int[] balloonsAttitudeMilestones;
-        private float[] balloonsDeltaMilestones;
-        private Vector[] balloonsPositionMilestones;
         private String[] balloonsTextures;
-
-        public static BalloonGeneratorBuilder generator(){
-            return new BalloonGeneratorBuilder();
-        }
 
         public BalloonGeneratorBuilder withBalloonsAmount(int planesAmount){
             this.balloonsAmount = planesAmount;
-            return this;
-        }
-
-        public BalloonGeneratorBuilder withAttitudeMilestones(int[] attitudeMilestones){
-            this.balloonsAttitudeMilestones = attitudeMilestones;
-            return this;
-        }
-
-        public BalloonGeneratorBuilder withDeltaMilestones(float[] deltaMilestones){
-            this.balloonsDeltaMilestones = deltaMilestones;
-            return this;
-        }
-
-        public BalloonGeneratorBuilder withPositionMilestones(Vector[] positionMilestones){
-            this.balloonsPositionMilestones = positionMilestones;
             return this;
         }
 
@@ -84,8 +62,7 @@ public class BalloonGenerator {
         }
 
         public BalloonGenerator build(){
-            BalloonGenerator balloonGenerator = new BalloonGenerator(balloonsAmount, balloonsTextures);
-            return balloonGenerator;
+            return new BalloonGenerator(balloonsAmount, balloonsTextures);
         }
     }
 

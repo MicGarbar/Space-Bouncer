@@ -9,11 +9,10 @@ import java.util.Random;
 
 public class PlaneGenerator {
 
-    private Random random = new Random();
-
     private List<Plane> planeList;
 
     public PlaneGenerator(int planesAmount, String[] planesTextures) {
+        Random random = new Random();
         planeList = new ArrayList<>();
 
         for(int i = 0; i < planesAmount; i++) {
@@ -48,38 +47,10 @@ public class PlaneGenerator {
     public static final class PlaneGeneratorBuilder {
 
         private int planesAmount;
-        private int[] planesAttitudeMilestones;
-        private int[] planesRotateMilestones;
-        private float[] planesDeltaMilestones;
-        private Vector[] planesPositionMilestones;
         private String[] planesTextures;
-
-        public static PlaneGeneratorBuilder generator(){
-            return new PlaneGeneratorBuilder();
-        }
 
         public PlaneGeneratorBuilder withPlanesAmount(int planesAmount){
             this.planesAmount = planesAmount;
-            return this;
-        }
-
-        public PlaneGeneratorBuilder withAttitudeMilestones(int[] attitudeMilestones){
-            this.planesAttitudeMilestones = attitudeMilestones;
-            return this;
-        }
-
-        public PlaneGeneratorBuilder withRotateMilestones(int[] rotateMilestones){
-            this.planesRotateMilestones = rotateMilestones;
-            return this;
-        }
-
-        public PlaneGeneratorBuilder withDeltaMilestones(float[] deltaMilestones){
-            this.planesDeltaMilestones = deltaMilestones;
-            return this;
-        }
-
-        public PlaneGeneratorBuilder withPositionMilestones(Vector[] positionMilestones){
-            this.planesPositionMilestones = positionMilestones;
             return this;
         }
 
@@ -89,8 +60,7 @@ public class PlaneGenerator {
         }
 
         public PlaneGenerator build(){
-            PlaneGenerator planeGenerator = new PlaneGenerator(planesAmount, planesTextures);
-            return planeGenerator;
+            return new PlaneGenerator(planesAmount, planesTextures);
         }
     }
 

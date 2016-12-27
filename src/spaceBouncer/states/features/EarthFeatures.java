@@ -1,13 +1,11 @@
 package spaceBouncer.states.features;
 
 import spaceBouncer.deploy.GameLoop;
-import spaceBouncer.utility.maths.Vector;
 
 import java.util.Random;
 
 public interface EarthFeatures {
 
-    Random rand = new Random();
     float screenScaleFactor = (float) GameLoop.HEIGHT / (float) GameLoop.WIDTH;
 
     String vertexSource = "shader/vertex/earth.vert";
@@ -44,6 +42,21 @@ public interface EarthFeatures {
 
     String[] balloonTextures = new String[]{
             balloonTexture0, balloonTexture1, balloonTexture2, balloonTexture3
+    };
+
+    /**
+     * CLOUDS
+     */
+
+    int cloudsAmount = 10;
+
+    String cloudTexture0 = "resources/cloud/cloud0.png";
+    String cloudTexture1 = "resources/cloud/cloud1.png";
+    String cloudTexture2 = "resources/cloud/cloud2.png";
+    String cloudTexture3 = "resources/cloud/cloud3.png";
+
+    String[] cloudTextures = new String[]{
+            cloudTexture0, cloudTexture1, cloudTexture2, cloudTexture3
     };
 
     /**
