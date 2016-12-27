@@ -1,6 +1,6 @@
 package spaceBouncer.entity;
 
-import spaceBouncer.entity.features.PlaneFeatures;
+import spaceBouncer.entity.features.BirdFeatures;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
@@ -8,7 +8,7 @@ import spaceBouncer.utility.maths.Matrix;
 import spaceBouncer.utility.maths.Vector;
 import spaceBouncer.utility.projections.Camera;
 
-public class Plane implements PlaneFeatures {
+public class Bird implements BirdFeatures {
 
     private Vector position;
     private VertexArrayObject vao;
@@ -21,7 +21,7 @@ public class Plane implements PlaneFeatures {
     private float deltaX = 0;
     private int triggerAttitude = 0;
 
-    public Plane(){
+    public Bird(){
         position = new Vector(-20.0f, 7.0f);
         vao = new VertexArrayObject(vertices, indices, textureCoordinates);
         shader = new Shader(vertexSource, fragmentSource);
@@ -32,7 +32,7 @@ public class Plane implements PlaneFeatures {
     public void update(){
         if(start){
             position.x += deltaX;
-            position.y = (float) (2*Math.sin(0.5*position.x)) + 1.0f;
+            position.y = (float) (5*Math.sin(0.5*position.x)) + 1.0f;
         }
     }
 
@@ -80,5 +80,4 @@ public class Plane implements PlaneFeatures {
         texture = new Texture(texturePath);
         shader.setSamplerUniform(sampler, activeTexture);
     }
-
 }

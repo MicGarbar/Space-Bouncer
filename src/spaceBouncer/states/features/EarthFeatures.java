@@ -60,6 +60,21 @@ public interface EarthFeatures {
     };
 
     /**
+     * BIRDS
+     */
+
+    int birdsAmount = 10;
+
+    String birdTexture0 = "resources/bird/bird0.png";
+    String birdTexture1 = "resources/bird/bird1.png";
+    String birdTexture2 = "resources/bird/bird2.png";
+    String birdTexture3 = "resources/bird/bird3.png";
+
+    String[] birdTextures = new String[]{
+            birdTexture0, balloonTexture1, birdTexture2, birdTexture3
+    };
+
+    /**
      * EARTH ITSELF
      */
 
