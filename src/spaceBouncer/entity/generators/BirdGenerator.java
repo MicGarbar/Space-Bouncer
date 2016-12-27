@@ -1,20 +1,16 @@
 package spaceBouncer.entity.generators;
 
-import org.lwjgl.system.CallbackI;
 import spaceBouncer.entity.Bird;
 import spaceBouncer.utility.maths.Vector;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
-public class BirdGenerator {
-
-    private List<Bird> birdList;
+public class BirdGenerator extends Generator {
 
     public BirdGenerator(int birdAmount, String[] birdTextures){
+        super(birdAmount, birdTextures);
+
         Random random = new Random();
-        birdList = new ArrayList<>();
 
         for(int i = 0; i < birdAmount; i++) {
             Bird bird = new Bird();
@@ -27,24 +23,8 @@ public class BirdGenerator {
             bird.setTexture((Math.random() > 0.5) ?
                     (Math.random() > 0.5 ? birdTextures[0] : birdTextures[1]) :
                     (Math.random() > 0.5 ? birdTextures[2] : birdTextures[3]));
-            birdList.add(bird);
+            entities.add(bird);
         }
-    }
-
-    public void update(){
-        for(Bird bird : birdList){
-            bird.update();
-        }
-    }
-
-    public void render(){
-        for(Bird bird : birdList){
-            bird.render();
-        }
-    }
-
-    public List<Bird> getBirdList(){
-        return this.birdList;
     }
 
     public static final class BirdGeneratorBuilder {

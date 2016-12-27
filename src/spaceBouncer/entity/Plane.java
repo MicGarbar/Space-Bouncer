@@ -8,18 +8,7 @@ import spaceBouncer.utility.maths.Matrix;
 import spaceBouncer.utility.maths.Vector;
 import spaceBouncer.utility.projections.Camera;
 
-public class Plane implements PlaneFeatures {
-
-    private Vector position;
-    private VertexArrayObject vao;
-    private Shader shader;
-    private Texture texture;
-
-    private boolean start = false;
-    private int rotationY = 0;
-
-    private float deltaX = 0;
-    private int triggerAttitude = 0;
+public class Plane extends Entity implements PlaneFeatures {
 
     public Plane(){
         position = new Vector(-20.0f, 7.0f);
@@ -37,15 +26,10 @@ public class Plane implements PlaneFeatures {
     }
 
     public void render(){
-        shader.activate();
+        startRender();
         shader.setMatrixUniform(modelMatrix, Matrix.translate(position)
                 .multiply(Matrix.rotateByY(rotationY)));
-        texture.bind();
-        vao.bind();
-        vao.draw();
-        vao.unbind();
-        texture.unbind();
-        shader.deactivate();
+        finishRender();
     }
 
     public void setStart(boolean start){

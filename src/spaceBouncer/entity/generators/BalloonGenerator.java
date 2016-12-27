@@ -3,18 +3,14 @@ package spaceBouncer.entity.generators;
 import spaceBouncer.entity.Balloon;
 import spaceBouncer.utility.maths.Vector;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
-public class BalloonGenerator {
-
-    private Random random = new Random();
-
-    private List<Balloon> balloonList;
+public class BalloonGenerator extends Generator {
 
     public BalloonGenerator(int balloonAmount, String[] balloonsTextures) {
-        balloonList = new ArrayList<>();
+        super(balloonAmount, balloonsTextures);
+
+        Random random = new Random();
 
         for(int i = 0; i < balloonAmount; i++) {
             Balloon balloon = new Balloon();
@@ -26,24 +22,8 @@ public class BalloonGenerator {
             balloon.setTexture((Math.random() > 0.5) ?
                     (Math.random() > 0.5 ? balloonsTextures[0] : balloonsTextures[1]) :
                     (Math.random() > 0.5 ? balloonsTextures[2] : balloonsTextures[3]));
-            balloonList.add(balloon);
+            entities.add(balloon);
         }
-    }
-
-    public void update(){
-        for(Balloon balloon : balloonList){
-            balloon.update();
-        }
-    }
-
-    public void render(){
-        for(Balloon balloon : balloonList){
-            balloon.render();
-        }
-    }
-
-    public List<Balloon> getBalloonList(){
-        return this.balloonList;
     }
 
     public static final class BalloonGeneratorBuilder {

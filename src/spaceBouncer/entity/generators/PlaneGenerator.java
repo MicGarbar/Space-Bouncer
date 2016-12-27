@@ -7,13 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class PlaneGenerator {
+public class PlaneGenerator extends Generator {
 
     private List<Plane> planeList;
 
     public PlaneGenerator(int planesAmount, String[] planesTextures) {
+        super(planesAmount, planesTextures);
+
         Random random = new Random();
-        planeList = new ArrayList<>();
 
         for(int i = 0; i < planesAmount; i++) {
             Plane plane = new Plane();
@@ -24,24 +25,8 @@ public class PlaneGenerator {
                     random.nextFloat()*0.1f :
                     random.nextFloat()*0.1f - 0.1f);
             plane.setTexture((Math.random() > 0.5) ? planesTextures[0] : planesTextures[1]);
-            planeList.add(plane);
+            entities.add(plane);
         }
-    }
-
-    public void update(){
-        for(Plane plane : planeList){
-            plane.update();
-        }
-    }
-
-    public void render(){
-        for(Plane plane : planeList){
-            plane.render();
-        }
-    }
-
-    public List<Plane> getPlaneList(){
-        return this.planeList;
     }
 
     public static final class PlaneGeneratorBuilder {

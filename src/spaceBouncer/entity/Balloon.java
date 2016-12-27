@@ -8,17 +8,7 @@ import spaceBouncer.utility.maths.Matrix;
 import spaceBouncer.utility.maths.Vector;
 import spaceBouncer.utility.projections.Camera;
 
-public class Balloon implements BalloonFeatures{
-
-    private Vector position;
-    private VertexArrayObject vao;
-    private Shader shader;
-    private Texture texture;
-
-    private boolean start = false;
-
-    private float deltaX = 0;
-    private int triggerAttitude = 0;
+public class Balloon extends Entity implements BalloonFeatures{
 
     public Balloon(){
         position = new Vector(-20.0f, 7.0f);
@@ -36,14 +26,9 @@ public class Balloon implements BalloonFeatures{
     }
 
     public void render(){
-        shader.activate();
+        startRender();
         shader.setMatrixUniform(modelMatrix, Matrix.translate(position));
-        texture.bind();
-        vao.bind();
-        vao.draw();
-        vao.unbind();
-        texture.unbind();
-        shader.deactivate();
+        finishRender();
     }
 
     public void setStart(boolean start){

@@ -3,17 +3,14 @@ package spaceBouncer.entity.generators;
 import spaceBouncer.entity.Cloud;
 import spaceBouncer.utility.maths.Vector;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
-public class CloudGenerator {
-
-    private List<Cloud> cloudList;
+public class CloudGenerator extends Generator {
 
     public CloudGenerator(int cloudsAmount, String[] cloudsTextures){
+        super(cloudsAmount, cloudsTextures);
+
         Random random = new Random();
-        cloudList = new ArrayList<>();
 
         for(int i = 0; i < cloudsAmount; i++) {
             Cloud cloud = new Cloud();
@@ -26,24 +23,8 @@ public class CloudGenerator {
             cloud.setTexture((Math.random() > 0.5) ?
                     (Math.random() > 0.5 ? cloudsTextures[0] : cloudsTextures[1]) :
                     (Math.random() > 0.5 ? cloudsTextures[2] : cloudsTextures[3]));
-            cloudList.add(cloud);
+            entities.add(cloud);
         }
-    }
-
-    public void update(){
-        for(Cloud cloud : cloudList){
-            cloud.update();
-        }
-    }
-
-    public void render(){
-        for(Cloud cloud : cloudList){
-            cloud.render();
-        }
-    }
-
-    public List<Cloud> getCloudList(){
-        return this.cloudList;
     }
 
     public static final class CloudGeneratorBuilder {

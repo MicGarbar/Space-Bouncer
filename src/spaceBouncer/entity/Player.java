@@ -11,17 +11,7 @@ import spaceBouncer.utility.projections.Camera;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class Player implements PlayerFeatures {
-
-    private Vector position;
-    private VertexArrayObject vao;
-    private Shader shader;
-    private Texture texture;
-
-    private int rotationY = 0;
-    private int rotationZ = 0;
-    private float deltaX = 0.0f;
-    private float deltaY = 0.0f;
+public class Player extends Entity implements PlayerFeatures {
 
     private float height = 20000.0f;
     private float deltaH = 0;
@@ -64,16 +54,11 @@ public class Player implements PlayerFeatures {
     }
 
     public void render(){
-        shader.activate();
+        startRender();
         shader.setMatrixUniform(modelMatrix, Matrix.translate(position)
                 .multiply(Matrix.rotateByZ(rotationZ))
                 .multiply(Matrix.rotateByY(rotationY)));
-        texture.bind();
-        vao.bind();
-        vao.draw();
-        vao.unbind();
-        texture.unbind();
-        shader.deactivate();
+        finishRender();
     }
 
     public int getHeight(){

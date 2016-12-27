@@ -1,15 +1,15 @@
 package spaceBouncer.states;
 
 import spaceBouncer.entity.*;
-import spaceBouncer.entity.generators.BalloonGenerator;
-import spaceBouncer.entity.generators.BirdGenerator;
-import spaceBouncer.entity.generators.CloudGenerator;
-import spaceBouncer.entity.generators.PlaneGenerator;
+import spaceBouncer.entity.generators.*;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
 import spaceBouncer.states.features.EarthFeatures;
 import spaceBouncer.utility.projections.Camera;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Earth implements EarthFeatures {
 
@@ -24,6 +24,8 @@ public class Earth implements EarthFeatures {
     private CloudGenerator cloudGenerator;
     private BirdGenerator birdGenerator;
 
+    private List<Generator> generatorList;
+
     public Earth(){
         vao = new VertexArrayObject(vertices, indices, textureCoordinates);
         shader = new Shader(vertexSource, fragmentSource);
@@ -33,58 +35,47 @@ public class Earth implements EarthFeatures {
         shader.setMatrixUniform(projectionMatrix, Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 
         player = new Player();
+        generatorList = new ArrayList<>();
 
         planeGenerator = new PlaneGenerator.PlaneGeneratorBuilder()
                 .withPlanesAmount(planesAmount)
                 .withTextures(planeTextures)
                 .build();
+        generatorList.add(planeGenerator);
 
         balloonGenerator = new BalloonGenerator.BalloonGeneratorBuilder()
                 .withBalloonsAmount(balloonsAmount)
                 .withTextures(balloonTextures)
                 .build();
+        generatorList.add(balloonGenerator);
 
         cloudGenerator = new CloudGenerator.CloudGeneratorBuilder()
                 .withCloudsAmount(cloudsAmount)
                 .withTextures(cloudTextures)
                 .build();
+        generatorList.add(cloudGenerator);
 
         birdGenerator = new BirdGenerator.BirdGeneratorBuilder()
                 .withBirdsAmount(birdsAmount)
                 .withTextures(birdTextures)
                 .build();
+        generatorList.add(birdGenerator);
     }
 
     public void update(){
         birdGenerator.update();
-        cloudGenerator.update();
-        balloonGenerator.update();
         planeGenerator.update();
+
+        for(Generator generator : generatorList){
+            generator.update();
+            for(Entity entity : generator.getEntities()){
+                if(player.getHeight() >= entity.getTriggerAttitude()){
+                    entity.setStart(true);
+                }
+            }
+        }
+
         player.update();
-
-        for(Plane plane :  planeGenerator.getPlaneList()){
-            if(player.getHeight() >= plane.getTriggerAttitude()){
-                plane.setStart(true);
-            }
-        }
-
-        for(Balloon balloon : balloonGenerator.getBalloonList()){
-            if(player.getHeight() >= balloon.getTriggerAttitude()){
-                balloon.setStart(true);
-            }
-        }
-
-        for(Cloud cloud : cloudGenerator.getCloudList()){
-            if(player.getHeight() >= cloud.getTriggerAttitude()){
-                cloud.setStart(true);
-            }
-        }
-
-        for(Bird bird : birdGenerator.getBirdList()){
-            if(player.getHeight() >= bird.getTriggerAttitude()){
-                bird.setStart(true);
-            }
-        }
     }
 
     public void render(){
@@ -96,10 +87,10 @@ public class Earth implements EarthFeatures {
         texture.unbind();
         shader.deactivate();
 
-        birdGenerator.render();
-        cloudGenerator.render();
-        balloonGenerator.render();
-        planeGenerator.render();
+        for(Generator generator : generatorList){
+            generator.render();
+        }
+
         player.render();
     }
 

@@ -8,18 +8,7 @@ import spaceBouncer.utility.maths.Matrix;
 import spaceBouncer.utility.maths.Vector;
 import spaceBouncer.utility.projections.Camera;
 
-public class Cloud implements CloudFeatures {
-
-    private Vector position;
-    private VertexArrayObject vao;
-    private Shader shader;
-    private Texture texture;
-
-    private boolean start = false;
-
-    private float deltaX = 0;
-    private float deltaY = 0;
-    private int triggerAttitude = 0;
+public class Cloud extends Entity implements CloudFeatures {
 
     public Cloud(){
         position = new Vector(-20.0f, 7.0f);
@@ -37,14 +26,9 @@ public class Cloud implements CloudFeatures {
     }
 
     public void render(){
-        shader.activate();
+        startRender();
         shader.setMatrixUniform(modelMatrix, Matrix.translate(position));
-        texture.bind();
-        vao.bind();
-        vao.draw();
-        vao.unbind();
-        texture.unbind();
-        shader.deactivate();
+        finishRender();
     }
 
     public void setStart(boolean start){
