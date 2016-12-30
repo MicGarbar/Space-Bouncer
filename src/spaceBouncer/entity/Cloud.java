@@ -16,6 +16,8 @@ public class Cloud extends Entity implements CloudFeatures {
         shader = new Shader(vertexSource, fragmentSource);
 
         shader.setMatrixUniform(projectionMatrix, Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
+
+        setSize(cloudSize);
     }
 
     public void update(){
@@ -45,10 +47,6 @@ public class Cloud extends Entity implements CloudFeatures {
 
     public void setPosition(Vector position) {
         this.position = position;
-    }
-
-    public Vector getPosition() {
-        return position;
     }
 
     public void setDeltaX(float deltaX) {

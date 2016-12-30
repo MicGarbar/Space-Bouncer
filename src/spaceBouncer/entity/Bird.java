@@ -16,6 +16,8 @@ public class Bird extends Entity implements BirdFeatures {
         shader = new Shader(vertexSource, fragmentSource);
 
         shader.setMatrixUniform(projectionMatrix, Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
+
+        setSize(birdSize);
     }
 
     public void update(){

@@ -6,6 +6,7 @@ import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
 import spaceBouncer.states.features.EarthFeatures;
+import spaceBouncer.utility.physics.Physics;
 import spaceBouncer.utility.projections.Camera;
 
 import java.util.ArrayList;
@@ -76,6 +77,9 @@ public class Earth implements EarthFeatures {
         }
 
         player.update();
+
+        checkCollision();
+        checkIfFallen();
     }
 
     public void render(){
@@ -92,6 +96,30 @@ public class Earth implements EarthFeatures {
         }
 
         player.render();
+    }
+
+    private void checkIfFallen(){
+        if(Physics.fallen(player)){
+            System.out.println("FALLEN");
+        }
+    }
+
+    private void checkCollision(){
+        for(int i = 0; i < generatorList.size(); i++){
+            for(int j = 0; j < generatorList.get(i).getEntities().size(); j++){
+                if(Physics.collision(player, generatorList.get(i).getEntities().get(j))){
+                    player.setDeltaY(getCollisionFactor(i));
+                }
+            }
+        }
+    }
+
+    private float getCollisionFactor(int i) {
+        float collisionFactor = 0.0f;
+        if(generatorList.get(i) instanceof PlaneGenerator) collisionFactor = planeCollisionFactor;
+        if(generatorList.get(i) instanceof BalloonGenerator) collisionFactor = balloonCollisionFactor;
+        if(generatorList.get(i) instanceof BirdGenerator) collisionFactor = birdCollisionFactor;
+        return collisionFactor;
     }
 
     public int getPlayerHeight(){

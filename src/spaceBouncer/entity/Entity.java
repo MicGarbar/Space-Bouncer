@@ -20,6 +20,8 @@ public abstract class Entity {
     protected float deltaX = 0;
     protected float deltaY = 0;
 
+    protected float size = 0;
+
     protected int triggerAttitude = 0;
 
     public abstract void update();
@@ -48,5 +50,25 @@ public abstract class Entity {
 
     public void setTriggerAttitude(int triggerAttitude) {
         this.triggerAttitude = triggerAttitude;
+    }
+
+    public Vector getPosition() {
+        return position;
+    }
+
+    public float getSize() {
+        return size;
+    }
+
+    public void setSize(float size) {
+        this.size = size;
+    }
+
+    public float getDeltaY() {
+        return deltaY;
+    }
+
+    public void setDeltaY(float deltaY) {
+        this.deltaY = deltaY;
     }
 }

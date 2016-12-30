@@ -16,6 +16,8 @@ public class Balloon extends Entity implements BalloonFeatures{
         shader = new Shader(vertexSource, fragmentSource);
 
         shader.setMatrixUniform(projectionMatrix, Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
+
+        setSize(balloonSize);
     }
 
     public void update(){
@@ -37,10 +39,6 @@ public class Balloon extends Entity implements BalloonFeatures{
 
     public void setPosition(Vector position){
         this.position = position;
-    }
-
-    public Vector getPosition(){
-        return this.position;
     }
 
     public void setDeltaX(float deltaX){

@@ -20,7 +20,9 @@ public interface EarthFeatures {
      * PLANES
      */
 
-    int planesAmount = 10;
+    int planesAmount = 2;
+
+    float planeCollisionFactor = -0.65f;
 
     String planeTexture0 = "resources/plane/airplane.png";
     String planeTexture1 = "resources/plane/plane.png";
@@ -33,7 +35,9 @@ public interface EarthFeatures {
      * BALLOONS
      */
 
-    int balloonsAmount = 10;
+    int balloonsAmount = 2;
+
+    float balloonCollisionFactor = -0.5f;
 
     String balloonTexture0 = "resources/balloon/balloon0.png";
     String balloonTexture1 = "resources/balloon/balloon1.png";
@@ -48,7 +52,7 @@ public interface EarthFeatures {
      * CLOUDS
      */
 
-    int cloudsAmount = 10;
+    int cloudsAmount = 0;
 
     String cloudTexture0 = "resources/cloud/cloud0.png";
     String cloudTexture1 = "resources/cloud/cloud1.png";
@@ -63,7 +67,9 @@ public interface EarthFeatures {
      * BIRDS
      */
 
-    int birdsAmount = 10;
+    int birdsAmount = 2;
+
+    float birdCollisionFactor = -0.3f;
 
     String birdTexture0 = "resources/bird/bird0.png";
     String birdTexture1 = "resources/bird/bird1.png";
@@ -71,7 +77,7 @@ public interface EarthFeatures {
     String birdTexture3 = "resources/bird/bird3.png";
 
     String[] birdTextures = new String[]{
-            birdTexture0, balloonTexture1, birdTexture2, birdTexture3
+            birdTexture0, birdTexture1, birdTexture2, birdTexture3
     };
 
     /**
