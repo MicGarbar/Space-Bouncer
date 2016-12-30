@@ -2,8 +2,6 @@ package spaceBouncer.states.features;
 
 import spaceBouncer.deploy.GameLoop;
 
-import java.util.Random;
-
 public interface EarthFeatures {
 
     float screenScaleFactor = (float) GameLoop.HEIGHT / (float) GameLoop.WIDTH;
@@ -20,7 +18,7 @@ public interface EarthFeatures {
      * PLANES
      */
 
-    int planesAmount = 2;
+    int planesAmount = 50;
 
     float planeCollisionFactor = -0.65f;
 
@@ -35,7 +33,7 @@ public interface EarthFeatures {
      * BALLOONS
      */
 
-    int balloonsAmount = 2;
+    int balloonsAmount = 300;
 
     float balloonCollisionFactor = -0.5f;
 
@@ -52,7 +50,9 @@ public interface EarthFeatures {
      * CLOUDS
      */
 
-    int cloudsAmount = 0;
+    int cloudsAmount = 500;
+
+    float cloudCollisionHazeFactor = 0.3f;
 
     String cloudTexture0 = "resources/cloud/cloud0.png";
     String cloudTexture1 = "resources/cloud/cloud1.png";
@@ -67,7 +67,7 @@ public interface EarthFeatures {
      * BIRDS
      */
 
-    int birdsAmount = 2;
+    int birdsAmount = 300;
 
     float birdCollisionFactor = -0.3f;
 

@@ -1,4 +1,4 @@
-package spaceBouncer.entity;
+package spaceBouncer.entity.entities;
 
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;

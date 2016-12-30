@@ -4,8 +4,8 @@ public interface PlayerFeatures {
 
     float playerSize = 1.5f;
 
-    String vertexSource = "shader/vertex/player.vert";
-    String fragmentSource = "shader/fragment/player.frag";
+    String vertexSource = "shader/vertex/entity.vert";
+    String fragmentSource = "shader/fragment/entity.frag";
     String textureSource = "resources/player.png";
     String sampler = "textureSampler";
     String modelMatrix = "modelMatrix";

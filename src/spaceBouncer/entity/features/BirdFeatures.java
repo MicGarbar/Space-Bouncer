@@ -4,8 +4,8 @@ public interface BirdFeatures {
 
     float birdSize = 1.0f;
 
-    String vertexSource = "shader/vertex/bird.vert";
-    String fragmentSource = "shader/fragment/bird.frag";
+    String vertexSource = "shader/vertex/entity.vert";
+    String fragmentSource = "shader/fragment/entity.frag";
     String sampler = "textureSampler";
     String modelMatrix = "modelMatrix";
     String projectionMatrix = "projectionMatrix";

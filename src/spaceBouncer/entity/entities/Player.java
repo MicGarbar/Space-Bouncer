@@ -1,5 +1,6 @@
-package spaceBouncer.entity;
+package spaceBouncer.entity.entities;
 
+import spaceBouncer.entity.entities.Entity;
 import spaceBouncer.entity.features.PlayerFeatures;
 import spaceBouncer.input.keyboard.KeyInput;
 import spaceBouncer.render.Shader;
@@ -13,7 +14,7 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class Player extends Entity implements PlayerFeatures {
 
-    private float height = 20000.0f;
+    private float height = 0.0f;
     private float deltaH = 0;
 
     public Player(){
@@ -35,7 +36,7 @@ public class Player extends Entity implements PlayerFeatures {
 
         if(KeyInput.isKeyDown(GLFW_KEY_UP)){
             deltaY = 0.15f;
-            deltaH = 0.1f;
+            deltaH = 0.2f;
         }
         else if(KeyInput.isKeyDown(GLFW_KEY_LEFT)){
             deltaX = -0.15f;

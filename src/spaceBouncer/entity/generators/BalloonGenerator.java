@@ -1,6 +1,6 @@
 package spaceBouncer.entity.generators;
 
-import spaceBouncer.entity.Balloon;
+import spaceBouncer.entity.entities.Balloon;
 import spaceBouncer.utility.maths.Vector;
 
 import java.util.Random;
@@ -14,7 +14,7 @@ public class BalloonGenerator extends Generator {
 
         for(int i = 0; i < balloonAmount; i++) {
             Balloon balloon = new Balloon();
-            balloon.setTriggerAttitude(random.nextInt(400) + 800);
+            balloon.setTriggerAttitude(random.nextInt(8200) + 800);
             balloon.setPosition(new Vector(Math.random() > 0.5 ? -20.0f : 20.0f, random.nextFloat()*10));
             balloon.setDeltaX(balloon.getPosition().x < 0 ?
                     random.nextFloat()*0.1f :

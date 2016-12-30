@@ -1,6 +1,8 @@
 package spaceBouncer.states;
 
-import spaceBouncer.entity.*;
+import spaceBouncer.entity.effects.Haze;
+import spaceBouncer.entity.entities.Entity;
+import spaceBouncer.entity.entities.Player;
 import spaceBouncer.entity.generators.*;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
@@ -19,6 +21,7 @@ public class Earth implements EarthFeatures {
     private Texture texture;
 
     private Player player;
+    private Haze haze;
 
     private PlaneGenerator planeGenerator;
     private BalloonGenerator balloonGenerator;
@@ -36,6 +39,7 @@ public class Earth implements EarthFeatures {
         shader.setMatrixUniform(projectionMatrix, Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 
         player = new Player();
+        haze = new Haze();
         generatorList = new ArrayList<>();
 
         planeGenerator = new PlaneGenerator.PlaneGeneratorBuilder()
@@ -77,6 +81,7 @@ public class Earth implements EarthFeatures {
         }
 
         player.update();
+        haze.update();
 
         checkCollision();
         checkIfFallen();
@@ -96,11 +101,12 @@ public class Earth implements EarthFeatures {
         }
 
         player.render();
+        haze.render();
     }
 
     private void checkIfFallen(){
         if(Physics.fallen(player)){
-            System.out.println("FALLEN");
+
         }
     }
 
@@ -119,6 +125,7 @@ public class Earth implements EarthFeatures {
         if(generatorList.get(i) instanceof PlaneGenerator) collisionFactor = planeCollisionFactor;
         if(generatorList.get(i) instanceof BalloonGenerator) collisionFactor = balloonCollisionFactor;
         if(generatorList.get(i) instanceof BirdGenerator) collisionFactor = birdCollisionFactor;
+        if(generatorList.get(i) instanceof CloudGenerator) haze.setHazeRecallTime(cloudCollisionHazeFactor);
         return collisionFactor;
     }
 

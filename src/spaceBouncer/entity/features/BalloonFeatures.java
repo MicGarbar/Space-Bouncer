@@ -4,9 +4,8 @@ public interface BalloonFeatures {
 
     float balloonSize = 1.5f;
 
-    String vertexSource = "shader/vertex/balloon.vert";
-    String fragmentSource = "shader/fragment/balloon.frag";
-    String textureSource = "resources/balloon.png";
+    String vertexSource = "shader/vertex/entity.vert";
+    String fragmentSource = "shader/fragment/entity.frag";
     String sampler = "textureSampler";
     String modelMatrix = "modelMatrix";
     String projectionMatrix = "projectionMatrix";

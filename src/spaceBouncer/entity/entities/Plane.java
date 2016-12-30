@@ -1,5 +1,6 @@
-package spaceBouncer.entity;
+package spaceBouncer.entity.entities;
 
+import spaceBouncer.entity.entities.Entity;
 import spaceBouncer.entity.features.PlaneFeatures;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;

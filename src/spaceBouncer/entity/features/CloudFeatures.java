@@ -4,8 +4,8 @@ public interface CloudFeatures {
 
     float cloudSize = 1.5f;
 
-    String vertexSource = "shader/vertex/balloon.vert";
-    String fragmentSource = "shader/fragment/balloon.frag";
+    String vertexSource = "shader/vertex/entity.vert";
+    String fragmentSource = "shader/fragment/entity.frag";
     String sampler = "textureSampler";
     String projectionMatrix = "projectionMatrix";
     String modelMatrix = "modelMatrix";

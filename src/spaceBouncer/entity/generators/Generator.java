@@ -1,6 +1,6 @@
 package spaceBouncer.entity.generators;
 
-import spaceBouncer.entity.Entity;
+import spaceBouncer.entity.entities.Entity;
 
 import java.util.ArrayList;
 import java.util.List;

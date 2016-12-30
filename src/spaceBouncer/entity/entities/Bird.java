@@ -1,4 +1,4 @@
-package spaceBouncer.entity;
+package spaceBouncer.entity.entities;
 
 import spaceBouncer.entity.features.BirdFeatures;
 import spaceBouncer.render.Shader;

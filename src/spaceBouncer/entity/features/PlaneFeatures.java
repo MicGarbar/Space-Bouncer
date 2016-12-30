@@ -4,9 +4,8 @@ public interface PlaneFeatures {
 
     float planeSize = 1.5f;
 
-    String vertexSource = "shader/vertex/plane.vert";
-    String fragmentSource = "shader/fragment/plane.frag";
-    String textureSource = "resources/plane.png";
+    String vertexSource = "shader/vertex/entity.vert";
+    String fragmentSource = "shader/fragment/entity.frag";
     String sampler = "textureSampler";
     String modelMatrix = "modelMatrix";
     String projectionMatrix = "projectionMatrix";

@@ -1,9 +1,8 @@
 package spaceBouncer.entity.generators;
 
-import spaceBouncer.entity.Plane;
+import spaceBouncer.entity.entities.Plane;
 import spaceBouncer.utility.maths.Vector;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 

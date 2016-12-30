@@ -1,6 +1,6 @@
 package spaceBouncer.entity.generators;
 
-import spaceBouncer.entity.Bird;
+import spaceBouncer.entity.entities.Bird;
 import spaceBouncer.utility.maths.Vector;
 
 import java.util.Random;
@@ -14,7 +14,7 @@ public class BirdGenerator extends Generator {
 
         for(int i = 0; i < birdAmount; i++) {
             Bird bird = new Bird();
-            bird.setTriggerAttitude(random.nextInt(2000) + 10);
+            bird.setTriggerAttitude(random.nextInt(5500) + 10);
             bird.setRotationY(Math.random() > 0.5 ? 0 : 180);
             bird.setPosition(new Vector(bird.getRotationY() == 0 ? -20.0f : 20.0f, random.nextFloat()*10));
             bird.setDeltaX(bird.getRotationY() == 0 ?

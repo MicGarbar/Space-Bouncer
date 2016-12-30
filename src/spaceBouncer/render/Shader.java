@@ -30,6 +30,11 @@ public class Shader {
         glUniform1i(getUniform(name), value);
     }
 
+    public void setFloatUniform(String name, float value){
+        if(!shaderEnabled) activate();
+        glUniform1f(getUniform(name), value);
+    }
+
     public void setMatrixUniform(String name, Matrix value){
         if(!shaderEnabled) activate();
         glUniformMatrix4fv(getUniform(name), false, value.toFloatBuffer());

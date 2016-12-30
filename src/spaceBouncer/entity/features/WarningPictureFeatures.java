@@ -2,8 +2,8 @@ package spaceBouncer.entity.features;
 
 public interface WarningPictureFeatures {
 
-    String vertexSource = "shader/vertex/warningPicture.vert";
-    String fragmentSource = "shader/fragment/warningPicture.frag";
+    String vertexSource = "shader/vertex/picture.vert";
+    String fragmentSource = "shader/fragment/picture.frag";
     String sampler = "textureSampler";
     String plainTextureSource = "resources/plain.png";
 

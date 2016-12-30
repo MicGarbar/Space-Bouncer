@@ -1,9 +1,8 @@
 package spaceBouncer.utility.physics;
 
 import spaceBouncer.deploy.GameLoop;
-import spaceBouncer.entity.Entity;
+import spaceBouncer.entity.entities.Entity;
 
-import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
 public class Physics {

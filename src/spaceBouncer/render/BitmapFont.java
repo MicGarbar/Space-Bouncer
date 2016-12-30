@@ -11,7 +11,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class BitmapFont {
 
-    private String bitmapFontSource = "resources/bookman.png";
+    private String bitmapFontSource = "resources/fontSheet.png";
     private int fontTexture;
 
     public BitmapFont(){

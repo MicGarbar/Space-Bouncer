@@ -1,6 +1,6 @@
 package spaceBouncer.entity.generators;
 
-import spaceBouncer.entity.Cloud;
+import spaceBouncer.entity.entities.Cloud;
 import spaceBouncer.utility.maths.Vector;
 
 import java.util.Random;

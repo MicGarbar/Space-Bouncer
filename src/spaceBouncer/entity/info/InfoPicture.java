@@ -6,13 +6,7 @@ import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
 import spaceBouncer.utility.loaders.File;
 
-public class InfoPicture implements InfoPictureFeatures {
-
-    private VertexArrayObject vao;
-    private Shader shader;
-    private Texture texture;
-
-    private int picturePointer;
+public class InfoPicture extends Picture implements InfoPictureFeatures {
 
     public InfoPicture(){
         texture = new Texture(plainTextureSource);
@@ -30,17 +24,7 @@ public class InfoPicture implements InfoPictureFeatures {
     }
 
     public void render(){
-        shader.activate();
-        texture.bind();
-        vao.bind();
-        vao.draw();
-        vao.unbind();
-        texture.unbind();
-        shader.deactivate();
-    }
-
-    public void setPicturePointer(int picturePointer){
-        this.picturePointer = picturePointer;
+        super.render();
     }
 
 }

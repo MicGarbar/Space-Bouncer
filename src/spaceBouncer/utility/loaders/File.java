@@ -31,13 +31,7 @@ public class File {
 
     public static boolean exists(String filePath){
         java.io.File file = new java.io.File(filePath);
-
-        if(file.exists()) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return file.exists();
     }
 
 }
