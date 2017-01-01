@@ -1,4 +1,4 @@
-package spaceBouncer.states;
+package spaceBouncer.state.states;
 
 import spaceBouncer.entity.effects.Haze;
 import spaceBouncer.entity.entities.Entity;
@@ -7,7 +7,7 @@ import spaceBouncer.entity.generators.*;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
-import spaceBouncer.states.features.EarthFeatures;
+import spaceBouncer.state.features.EarthFeatures;
 import spaceBouncer.utility.physics.Physics;
 import spaceBouncer.utility.projections.Camera;
 

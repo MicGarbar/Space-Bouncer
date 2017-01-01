@@ -1,4 +1,4 @@
-package spaceBouncer.states.features;
+package spaceBouncer.state.features;
 
 import spaceBouncer.deploy.GameLoop;
 
@@ -18,7 +18,7 @@ public interface EarthFeatures {
      * PLANES
      */
 
-    int planesAmount = 50;
+    int planesAmount = 0;
 
     float planeCollisionFactor = -0.65f;
 
@@ -33,7 +33,7 @@ public interface EarthFeatures {
      * BALLOONS
      */
 
-    int balloonsAmount = 100;
+    int balloonsAmount = 0;
 
     float balloonCollisionFactor = -0.5f;
 
@@ -50,7 +50,7 @@ public interface EarthFeatures {
      * CLOUDS
      */
 
-    int cloudsAmount = 100;
+    int cloudsAmount = 0;
 
     float cloudCollisionHazeFactor = 0.3f;
 
@@ -67,7 +67,7 @@ public interface EarthFeatures {
      * BIRDS
      */
 
-    int birdsAmount = 100;
+    int birdsAmount = 0;
 
     float birdCollisionFactor = -0.3f;
 

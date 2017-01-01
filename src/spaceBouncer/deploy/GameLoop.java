@@ -5,8 +5,12 @@ import spaceBouncer.entity.effects.Dim;
 import spaceBouncer.entity.info.InfoPicture;
 import spaceBouncer.entity.info.WarningPicture;
 import spaceBouncer.input.keyboard.KeyInput;
+import spaceBouncer.input.mouse.MouseInput;
+import spaceBouncer.input.mouse.MousePositionInput;
 import spaceBouncer.render.BitmapFont;
-import spaceBouncer.states.Earth;
+import spaceBouncer.state.states.Earth;
+import spaceBouncer.state.states.MainMenu;
+import spaceBouncer.state.statesEnum.State;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL.createCapabilities;
@@ -16,12 +20,15 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class GameLoop implements Runnable {
 
+    public static State gameState;
+
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 720;
     final String TITLE = "Space Bouncer";
     final String THREAD_NAME = "Space Bouncer Thread";
 
     private GameThread gameThread;
+    private MainMenu mainMenu;
     private Earth earth;
     private BitmapFont bitmapFont;
     private InfoPicture infoPicture;
@@ -55,15 +62,20 @@ public class GameLoop implements Runnable {
         createCapabilities();
 
         glfwSetKeyCallback(windowID, new KeyInput());
+        glfwSetMouseButtonCallback(windowID, new MouseInput());
+        glfwSetCursorPosCallback(windowID, new MousePositionInput());
 
         glActiveTexture(GL_TEXTURE0);
         glEnable(GL_BLEND);
 
         bitmapFont = new BitmapFont();
+        mainMenu = new MainMenu();
         earth = new Earth();
         infoPicture = new InfoPicture();
         warningPicture = new WarningPicture();
         dim = new Dim();
+
+        gameState = State.MAIN_MENU;
     }
 
     @Override
@@ -97,30 +109,41 @@ public class GameLoop implements Runnable {
     private void update(){
         glfwPollEvents();
 
-        earth.update();
+        switch (gameState){
+            case MAIN_MENU: mainMenu.update(); break;
+            case THE_EARTH:
+                earth.update();
+                if(earth.isLevelFailed()){
+                    dim.update();
+                }
 
-        if(earth.isLevelFailed()){
-            dim.update();
+                infoPicture.setPicturePointer(earth.getPlayerHeight());
+                warningPicture.setPicturePointer(earth.getPlayerHeight());
+                infoPicture.update();
+                warningPicture.update();
+                break;
         }
-
-        infoPicture.setPicturePointer(earth.getPlayerHeight());
-        warningPicture.setPicturePointer(earth.getPlayerHeight());
-        infoPicture.update();
-        warningPicture.update();
     }
 
     private void render(){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        earth.render();
 
-        if(earth.isLevelFailed()){
-            dim.render();
-            renderDefeatMessage();
+        switch (gameState){
+            case MAIN_MENU: mainMenu.render(); break;
+            case THE_EARTH:
+                earth.render();
+
+                if(earth.isLevelFailed()){
+                    dim.render();
+                    renderDefeatMessage();
+                }
+
+                bitmapFont.render(String.valueOf(earth.getPlayerHeight() + " m"), 0.6f, 0.35f);
+                infoPicture.render();
+                warningPicture.render();
+                break;
         }
 
-        bitmapFont.render(String.valueOf(earth.getPlayerHeight() + " m"), 0.6f, 0.35f);
-        infoPicture.render();
-        warningPicture.render();
         glfwSwapBuffers(windowID);
     }
 
