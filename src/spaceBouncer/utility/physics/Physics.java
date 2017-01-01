@@ -1,6 +1,5 @@
 package spaceBouncer.utility.physics;
 
-import spaceBouncer.deploy.GameLoop;
 import spaceBouncer.entity.entities.Entity;
 
 import java.awt.geom.Rectangle2D;
@@ -23,7 +22,7 @@ public class Physics {
 
         Rectangle2D entityRect = new Rectangle2D.Float(entity.getPosition().x, entity.getPosition().y,
                 entity.getSize(), entity.getSize());
-        Rectangle2D screenRect = new Rectangle2D.Float(0, 0, GameLoop.WIDTH, GameLoop.HEIGHT);
+        Rectangle2D screenRect = new Rectangle2D.Float(-16.0f, -9.0f, 32.0f, 18.0f);
 
         return !screenRect.contains(entityRect);
     }

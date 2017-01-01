@@ -1,6 +1,7 @@
 package spaceBouncer.deploy;
 
 import org.lwjgl.glfw.GLFWVidMode;
+import spaceBouncer.entity.effects.Dim;
 import spaceBouncer.entity.info.InfoPicture;
 import spaceBouncer.entity.info.WarningPicture;
 import spaceBouncer.input.keyboard.KeyInput;
@@ -25,6 +26,7 @@ public class GameLoop implements Runnable {
     private BitmapFont bitmapFont;
     private InfoPicture infoPicture;
     private WarningPicture warningPicture;
+    private Dim dim;
 
     private long windowID;
 
@@ -61,6 +63,7 @@ public class GameLoop implements Runnable {
         earth = new Earth();
         infoPicture = new InfoPicture();
         warningPicture = new WarningPicture();
+        dim = new Dim();
     }
 
     @Override
@@ -93,7 +96,13 @@ public class GameLoop implements Runnable {
 
     private void update(){
         glfwPollEvents();
+
         earth.update();
+
+        if(earth.isLevelFailed()){
+            dim.update();
+        }
+
         infoPicture.setPicturePointer(earth.getPlayerHeight());
         warningPicture.setPicturePointer(earth.getPlayerHeight());
         infoPicture.update();
@@ -103,10 +112,22 @@ public class GameLoop implements Runnable {
     private void render(){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         earth.render();
-        bitmapFont.render(String.valueOf(earth.getPlayerHeight()));
+
+        if(earth.isLevelFailed()){
+            dim.render();
+            renderDefeatMessage();
+        }
+
+        bitmapFont.render(String.valueOf(earth.getPlayerHeight() + " m"), 0.6f, 0.35f);
         infoPicture.render();
         warningPicture.render();
         glfwSwapBuffers(windowID);
+    }
+
+    private void renderDefeatMessage() {
+        bitmapFont.render("DEFEAT", -0.4f, 0.15f);
+        bitmapFont.render("PRESS UP ARROW", -0.6f, 0.0f);
+        bitmapFont.render("TO CONTINUE", -0.52f, -0.1f);
     }
 
     public static void main(String[] args){

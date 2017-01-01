@@ -16,6 +16,7 @@ public class Player extends Entity implements PlayerFeatures {
 
     private float height = 0.0f;
     private float deltaH = 0;
+    private boolean bouncing = true;
 
     public Player(){
         position = new Vector();
@@ -64,8 +65,17 @@ public class Player extends Entity implements PlayerFeatures {
         finishRender();
     }
 
+    public void fall(){
+        deltaH = 0.0f;
+        deltaY = 0.4f;
+        bouncing = false;
+    }
+
     public int getHeight(){
         return (int) this.height;
     }
 
+    public boolean isBouncing() {
+        return bouncing;
+    }
 }

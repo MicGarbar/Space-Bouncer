@@ -30,6 +30,8 @@ public class Earth implements EarthFeatures {
 
     private List<Generator> generatorList;
 
+    private boolean levelFailed = false;
+
     public Earth(){
         vao = new VertexArrayObject(vertices, indices, textureCoordinates);
         shader = new Shader(vertexSource, fragmentSource);
@@ -105,8 +107,9 @@ public class Earth implements EarthFeatures {
     }
 
     private void checkIfFallen(){
-        if(Physics.fallen(player)){
-
+        if(Physics.fallen(player) && player.isBouncing()){
+            player.fall();
+            levelFailed = true;
         }
     }
 
@@ -133,4 +136,7 @@ public class Earth implements EarthFeatures {
         return this.player.getHeight();
     }
 
+    public boolean isLevelFailed() {
+        return levelFailed;
+    }
 }
