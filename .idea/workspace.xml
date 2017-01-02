@@ -2,25 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce470c62-3d09-4e3c-892d-e88552d103af" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/deploy/GameLoop$1.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/deploy/GameLoop$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/deploy/GameLoop.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/deploy/GameLoop.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Entity.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Entity.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/features/AsteroidFeatures.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/features/BalloonFeatures.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/features/BirdFeatures.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/features/CloudFeatures.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/features/CometFeatures.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/features/PlaneFeatures.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/features/PlayerFeatures.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/features/ProbeFeatures.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/features/AsteroidFeatures.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/features/BalloonFeatures.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/features/BirdFeatures.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/features/CloudFeatures.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/features/CometFeatures.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/features/PlaneFeatures.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/features/PlayerFeatures.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/features/ProbeFeatures.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Asteroid.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Asteroid.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Balloon.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Balloon.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Bird.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Bird.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Cloud.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Cloud.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Comet.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Comet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Plane.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Plane.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Player.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/generators/BalloonGenerator$BalloonGeneratorBuilder.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/generators/BalloonGenerator$BalloonGeneratorBuilder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/info/InfoPicture.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/info/InfoPicture.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/info/WarningPicture.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/info/WarningPicture.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/state/states/Earth.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/state/states/Earth.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/state/states/MainMenu.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/state/states/MainMenu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/fontSheet.png" afterPath="$PROJECT_DIR$/resources/fontSheet.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Probe.class" afterPath="$PROJECT_DIR$/out/production/SpaceBouncer/spaceBouncer/entity/entities/Probe.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/deploy/GameLoop.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/deploy/GameLoop.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Entity.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Entity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Asteroid.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Asteroid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Balloon.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Balloon.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Bird.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Bird.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Cloud.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Cloud.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Comet.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Comet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Plane.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Plane.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Player.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/generators/BalloonGenerator.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/entity/generators/BalloonGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/info/InfoPicture.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/entity/info/InfoPicture.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/info/WarningPicture.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/entity/info/WarningPicture.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/state/states/Earth.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/state/states/Earth.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/state/states/MainMenu.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/state/states/MainMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Probe.java" afterPath="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Probe.java" />
     </list>
     <ignored path="SpaceBouncer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,7 +56,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Space.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Space.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/spaceBouncer/state/states/Space.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="290">
@@ -56,46 +70,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpaceFeatures.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/spaceBouncer/state/features/SpaceFeatures.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CloudGenerator.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/generators/CloudGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="24" column="83" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlaneGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/generators/PlaneGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -103,8 +77,8 @@
       <list>
         <option value="Kotlin Class" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -119,10 +93,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/features/BirdFeatures.java" />
-        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/features/CloudFeatures.java" />
-        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/features/PlaneFeatures.java" />
-        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/features/PlayerFeatures.java" />
         <option value="$PROJECT_DIR$/src/spaceBouncer/entity/info/Picture.java" />
         <option value="$PROJECT_DIR$/src/spaceBouncer/entity/features/InfoPictureFeatures.java" />
         <option value="$PROJECT_DIR$/src/spaceBouncer/entity/features/WarningPictureFeatures.java" />
@@ -158,18 +128,22 @@
         <option value="$PROJECT_DIR$/src/spaceBouncer/entity/generators/ProbeGenerator.java" />
         <option value="$PROJECT_DIR$/src/spaceBouncer/state/states/Earth.java" />
         <option value="$PROJECT_DIR$/src/spaceBouncer/entity/features/ProbeFeatures.java" />
-        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Probe.java" />
         <option value="$PROJECT_DIR$/src/spaceBouncer/entity/features/AsteroidFeatures.java" />
-        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Player.java" />
         <option value="$PROJECT_DIR$/src/spaceBouncer/entity/generators/AsteroidGenerator.java" />
-        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Asteroid.java" />
         <option value="$PROJECT_DIR$/src/spaceBouncer/entity/features/CometFeatures.java" />
-        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Cloud.java" />
         <option value="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Entity.java" />
         <option value="$PROJECT_DIR$/src/spaceBouncer/state/states/Space.java" />
         <option value="$PROJECT_DIR$/src/spaceBouncer/state/features/SpaceFeatures.java" />
         <option value="$PROJECT_DIR$/src/spaceBouncer/entity/generators/CometGenerator.java" />
+        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Asteroid.java" />
+        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Balloon.java" />
+        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Bird.java" />
+        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Cloud.java" />
         <option value="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Comet.java" />
+        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Plane.java" />
+        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Probe.java" />
+        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/features/EntityFeatures.java" />
+        <option value="$PROJECT_DIR$/src/spaceBouncer/entity/entities/Player.java" />
       </list>
     </option>
   </component>
@@ -797,12 +771,12 @@
       <workItem from="1483104610925" duration="11053000" />
       <workItem from="1483183292927" duration="695000" />
       <workItem from="1483284181120" duration="16991000" />
-      <workItem from="1483372410759" duration="10530000" />
+      <workItem from="1483372410759" duration="11558000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130349000" />
+    <option name="totallyTimeSpent" value="131377000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -895,61 +869,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/effects/Haze.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/effects/Dim.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shader/fragment/menu.frag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shader/fragment/menuTile.frag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shader/fragment/entity.frag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shader/vertex/menuTile.vert">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shader/vertex/entity.vert">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/spaceBouncer/state/statesEnum/State.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1136,22 +1055,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/features/BalloonFeatures.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Balloon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/generators/BalloonGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
@@ -1178,38 +1081,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/features/ProbeFeatures.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/generators/ProbeGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Probe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Asteroid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1223,30 +1098,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/features/AsteroidFeatures.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/features/CometFeatures.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Cloud.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1272,41 +1123,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/state/states/Space.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="80" column="19" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2862#2863#0" expanded="true" />
-            <element signature="e#2901#2902#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/generators/PlaneGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Comet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1322,9 +1143,163 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/generators/CloudGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="24" column="83" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
+        <state relative-caret-position="322">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/features/AsteroidFeatures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="19" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/features/BalloonFeatures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/features/BirdFeatures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="19" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/features/CloudFeatures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="6" selection-start-line="14" selection-start-column="4" selection-end-line="19" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/features/CometFeatures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/features/PlaneFeatures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/features/ProbeFeatures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="19" column="6" selection-start-line="14" selection-start-column="4" selection-end-line="19" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Balloon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Asteroid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Bird.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Cloud.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Comet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Plane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Probe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/features/PlayerFeatures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/entities/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/entity/features/EntityFeatures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spaceBouncer/state/states/Space.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="80" column="19" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2862#2863#0" expanded="true" />
+            <element signature="e#2901#2902#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

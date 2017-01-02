@@ -1,8 +1,6 @@
 package spaceBouncer.entity.entities;
 
-import spaceBouncer.deploy.GameLoop;
-import spaceBouncer.entity.entities.Entity;
-import spaceBouncer.entity.features.PlayerFeatures;
+import spaceBouncer.entity.features.EntityFeatures;
 import spaceBouncer.input.keyboard.KeyInput;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
@@ -13,7 +11,7 @@ import spaceBouncer.utility.projections.Camera;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-public class Player extends Entity implements PlayerFeatures {
+public class Player extends Entity implements EntityFeatures {
 
     private float height = 1000.0f * 100/15;
     private float deltaH = 0;
@@ -21,9 +19,9 @@ public class Player extends Entity implements PlayerFeatures {
 
     public Player(){
         position = new Vector();
-        vao = new VertexArrayObject(vertices, indices, textureCoordinates);
+        vao = new VertexArrayObject(playerVertices, indices, textureCoordinates);
         shader = new Shader(vertexSource, fragmentSource);
-        texture = new Texture(textureSource);
+        texture = new Texture(playerTextureSource);
 
         shader.setSamplerUniform(sampler, activeTexture);
         shader.setMatrixUniform(projectionMatrix, Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));

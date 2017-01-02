@@ -1,7 +1,6 @@
 package spaceBouncer.entity.entities;
 
-import spaceBouncer.entity.entities.Entity;
-import spaceBouncer.entity.features.PlaneFeatures;
+import spaceBouncer.entity.features.EntityFeatures;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
@@ -9,11 +8,11 @@ import spaceBouncer.utility.maths.Matrix;
 import spaceBouncer.utility.maths.Vector;
 import spaceBouncer.utility.projections.Camera;
 
-public class Plane extends Entity implements PlaneFeatures {
+public class Plane extends Entity implements EntityFeatures {
 
     public Plane(){
         position = new Vector(-20.0f, 7.0f);
-        vao = new VertexArrayObject(vertices, indices, textureCoordinates);
+        vao = new VertexArrayObject(planeVertices, indices, textureCoordinates);
         shader = new Shader(vertexSource, fragmentSource);
 
         shader.setMatrixUniform(projectionMatrix, Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
