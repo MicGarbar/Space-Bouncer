@@ -10,6 +10,7 @@ import spaceBouncer.input.mouse.MousePositionInput;
 import spaceBouncer.render.BitmapFont;
 import spaceBouncer.state.states.Earth;
 import spaceBouncer.state.states.MainMenu;
+import spaceBouncer.state.states.Space;
 import spaceBouncer.state.statesEnum.State;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -30,6 +31,7 @@ public class GameLoop implements Runnable {
     private GameThread gameThread;
     private MainMenu mainMenu;
     private Earth earth;
+    private Space space;
     private BitmapFont bitmapFont;
     private InfoPicture infoPicture;
     private WarningPicture warningPicture;
@@ -71,6 +73,7 @@ public class GameLoop implements Runnable {
         bitmapFont = new BitmapFont();
         mainMenu = new MainMenu();
         earth = new Earth();
+        space = new Space();
         infoPicture = new InfoPicture();
         warningPicture = new WarningPicture();
         dim = new Dim();
@@ -113,12 +116,25 @@ public class GameLoop implements Runnable {
             case MAIN_MENU: mainMenu.update(); break;
             case THE_EARTH:
                 earth.update();
+
                 if(earth.isLevelFailed()){
                     dim.update();
                 }
 
                 infoPicture.setPicturePointer(earth.getPlayerHeight());
                 warningPicture.setPicturePointer(earth.getPlayerHeight());
+                infoPicture.update();
+                warningPicture.update();
+                break;
+            case SPACE:
+                space.update();
+
+                if(space.isLevelFailed()){
+                    dim.update();
+                }
+
+                infoPicture.setPicturePointer(space.getPlayerDistance());
+                warningPicture.setPicturePointer(space.getPlayerDistance());
                 infoPicture.update();
                 warningPicture.update();
                 break;
@@ -139,6 +155,19 @@ public class GameLoop implements Runnable {
                 }
 
                 bitmapFont.render(String.valueOf(earth.getPlayerHeight() + " m"), 0.6f, 0.35f);
+                infoPicture.render();
+                warningPicture.render();
+                break;
+            case SPACE:
+                space.render();
+
+                if(space.isLevelFailed()){
+                    dim.render();
+                    renderDefeatMessage();
+                }
+
+                bitmapFont.render("mln km", 0.55f, 0.25f);
+                bitmapFont.render(String.valueOf(space.getPlayerDistance()), 0.65f, 0.35f);
                 infoPicture.render();
                 warningPicture.render();
                 break;

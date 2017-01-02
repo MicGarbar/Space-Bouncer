@@ -1,9 +1,11 @@
 package spaceBouncer.entity.info;
 
+import spaceBouncer.deploy.GameLoop;
 import spaceBouncer.entity.features.WarningPictureFeatures;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
+import spaceBouncer.state.statesEnum.State;
 import spaceBouncer.utility.loaders.File;
 
 public class WarningPicture extends Picture implements WarningPictureFeatures {
@@ -17,7 +19,11 @@ public class WarningPicture extends Picture implements WarningPictureFeatures {
     }
 
     public void update(){
-        String currentPath = "resources/warningPictures/" + picturePointer + ".png";
+        String path = "";
+        if(GameLoop.gameState == State.THE_EARTH) path = "resources/infoPictures/";
+        else if(GameLoop.gameState == State.SPACE) path = "resources/infoPictures/space/";
+
+        String currentPath = path + picturePointer + ".png";
         if(File.exists(currentPath)) {
             texture = new Texture(currentPath);
         } else return;

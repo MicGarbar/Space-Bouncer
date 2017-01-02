@@ -70,9 +70,6 @@ public class Earth implements EarthFeatures {
     }
 
     public void update(){
-        birdGenerator.update();
-        planeGenerator.update();
-
         for(Generator generator : generatorList){
             generator.update();
             for(Entity entity : generator.getEntities()){

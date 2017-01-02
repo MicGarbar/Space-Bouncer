@@ -52,6 +52,10 @@ public abstract class Entity {
         this.triggerAttitude = triggerAttitude;
     }
 
+    public void setPosition(Vector position){
+        this.position = position;
+    }
+
     public Vector getPosition() {
         return position;
     }
@@ -70,5 +74,29 @@ public abstract class Entity {
 
     public void setDeltaY(float deltaY) {
         this.deltaY = deltaY;
+    }
+
+    public int getRotationZ() {
+        return rotationZ;
+    }
+
+    public void setRotationZ(int rotationZ) {
+        this.rotationZ = rotationZ;
+    }
+
+    public int getRotationY() {
+        return rotationY;
+    }
+
+    public void setRotationY(int rotationY) {
+        this.rotationY = rotationY;
+    }
+
+    public float getDeltaX() {
+        return deltaX;
+    }
+
+    public void setDeltaX(float deltaX) {
+        this.deltaX = deltaX;
     }
 }

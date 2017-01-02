@@ -1,5 +1,6 @@
 package spaceBouncer.entity.entities;
 
+import spaceBouncer.deploy.GameLoop;
 import spaceBouncer.entity.entities.Entity;
 import spaceBouncer.entity.features.PlayerFeatures;
 import spaceBouncer.input.keyboard.KeyInput;
@@ -14,7 +15,7 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class Player extends Entity implements PlayerFeatures {
 
-    private float height = 0.0f;
+    private float height = 1000.0f * 100/15;
     private float deltaH = 0;
     private boolean bouncing = true;
 

@@ -31,13 +31,13 @@ public class BalloonGenerator extends Generator {
         private int balloonsAmount;
         private String[] balloonsTextures;
 
-        public BalloonGeneratorBuilder withBalloonsAmount(int planesAmount){
-            this.balloonsAmount = planesAmount;
+        public BalloonGeneratorBuilder withBalloonsAmount(int balloonsAmount){
+            this.balloonsAmount = balloonsAmount;
             return this;
         }
 
-        public BalloonGeneratorBuilder withTextures(String[] planesTextures){
-            this.balloonsTextures = planesTextures;
+        public BalloonGeneratorBuilder withTextures(String[] balloonsTextures){
+            this.balloonsTextures = balloonsTextures;
             return this;
         }
 
