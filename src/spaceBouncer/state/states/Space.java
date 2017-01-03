@@ -1,7 +1,6 @@
 package spaceBouncer.state.states;
 
-import spaceBouncer.entity.entities.Entity;
-import spaceBouncer.entity.entities.Player;
+import spaceBouncer.entity.entities.*;
 import spaceBouncer.entity.generators.AsteroidGenerator;
 import spaceBouncer.entity.generators.CometGenerator;
 import spaceBouncer.entity.generators.Generator;
@@ -22,12 +21,16 @@ public class Space implements SpaceFeatures {
     private Texture texture;
 
     private Player player;
+    private Voyager voyager;
+    private Hubble hubble;
+    private ISS internationalSpaceStation;
 
     private ProbeGenerator probeGenerator;
     private AsteroidGenerator asteroidGenerator;
     private CometGenerator cometGenerator;
 
     private List<Generator> generatorList;
+    private List<Entity> uniqueEntities;
 
     private boolean levelFailed = false;
 
@@ -40,7 +43,15 @@ public class Space implements SpaceFeatures {
         shader.setMatrixUniform(projectionMatrix, Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 
         player = new Player();
+        voyager = new Voyager();
+        hubble = new Hubble();
+        internationalSpaceStation = new ISS();
         generatorList = new ArrayList<>();
+        uniqueEntities = new ArrayList<>();
+
+        uniqueEntities.add(voyager);
+        uniqueEntities.add(hubble);
+        uniqueEntities.add(internationalSpaceStation);
 
         probeGenerator = new ProbeGenerator.ProbeGeneratorBuilder()
                 .withAmount(probesAmount)
@@ -71,6 +82,13 @@ public class Space implements SpaceFeatures {
             }
         }
 
+        for(Entity entity : uniqueEntities){
+            entity.update();
+            if(player.getHeight() >= entity.getTriggerAttitude()){
+                entity.setStart(true);
+            }
+        }
+
         player.update();
     }
 
@@ -85,6 +103,10 @@ public class Space implements SpaceFeatures {
 
         for(Generator generator : generatorList){
             generator.render();
+        }
+
+        for(Entity entity : uniqueEntities){
+            entity.render();
         }
 
         player.render();
