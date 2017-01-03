@@ -99,4 +99,12 @@ public abstract class Entity {
     public void setDeltaX(float deltaX) {
         this.deltaX = deltaX;
     }
+
+    public VertexArrayObject getVao() {
+        return vao;
+    }
+
+    public void setVao(VertexArrayObject vao) {
+        this.vao = vao;
+    }
 }

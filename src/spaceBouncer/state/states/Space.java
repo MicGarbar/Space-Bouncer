@@ -1,10 +1,7 @@
 package spaceBouncer.state.states;
 
 import spaceBouncer.entity.entities.*;
-import spaceBouncer.entity.generators.AsteroidGenerator;
-import spaceBouncer.entity.generators.CometGenerator;
-import spaceBouncer.entity.generators.Generator;
-import spaceBouncer.entity.generators.ProbeGenerator;
+import spaceBouncer.entity.generators.*;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
@@ -28,6 +25,7 @@ public class Space implements SpaceFeatures {
     private ProbeGenerator probeGenerator;
     private AsteroidGenerator asteroidGenerator;
     private CometGenerator cometGenerator;
+    private PlanetGenerator planetGenerator;
 
     private List<Generator> generatorList;
     private List<Entity> uniqueEntities;
@@ -70,6 +68,9 @@ public class Space implements SpaceFeatures {
                 .withTextures(cometTextures)
                 .build();
         generatorList.add(cometGenerator);
+
+        planetGenerator = new PlanetGenerator();
+        generatorList.add(planetGenerator);
     }
 
     public void update(){

@@ -9,6 +9,10 @@ public abstract class Generator {
 
     protected List<Entity> entities;
 
+    public Generator() {
+        entities = new ArrayList<>();
+    }
+
     public Generator(int amount, String[] textures){
         entities = new ArrayList<>();
     }

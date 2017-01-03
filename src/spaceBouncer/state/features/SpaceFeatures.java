@@ -46,7 +46,7 @@ public interface SpaceFeatures {
      * COMETS
      */
 
-    int cometsAmount = 5;
+    int cometsAmount = 0;
 
     String cometTexture0 = "resources/comet/comet0.png";
     String cometTexture1 = "resources/comet/comet1.png";
