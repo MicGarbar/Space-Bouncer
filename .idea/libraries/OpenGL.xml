@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="OpenGL">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/libraries/lwjgl/jar" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/libraries/lwjgl/native" />
+    </NATIVE>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/libraries/lwjgl" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/libraries/lwjgl/jar" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/libraries/lwjgl" recursive="false" type="SOURCES" />
+  </library>
+</component>

@@ -7,9 +7,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="lwjgl" level="project" />
     <orderEntry type="library" name="shader" level="project" />
     <orderEntry type="library" name="resources" level="project" />
-    <orderEntry type="library" name="PNGDecoder" level="project" />
+    <orderEntry type="library" name="Decoder" level="project" />
+    <orderEntry type="library" name="OpenGL" level="project" />
+    <orderEntry type="library" name="libraries" level="project" />
   </component>
 </module>
