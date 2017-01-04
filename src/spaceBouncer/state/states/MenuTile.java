@@ -54,4 +54,9 @@ public class MenuTile implements MenuTileFeatures {
     public MenuState getMenuState() {
         return menuState;
     }
+
+    public void setTexture(String texturePath){
+        texture = new Texture(texturePath);
+        shader.setSamplerUniform(sampler, activeTexture);
+    }
 }

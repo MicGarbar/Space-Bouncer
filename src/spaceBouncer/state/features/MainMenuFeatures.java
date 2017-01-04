@@ -12,6 +12,13 @@ public interface MainMenuFeatures {
     String sampler = "textureSampler";
     String projectionMatrix = "projectionMatrix";
 
+    String newGameTextureSource = "resources/states/newGame.png";
+    String statsTextureSource = "resources/states/stats.png";
+    String exitTextureSource = "resources/states/exit.png";
+    String newGameBrightTextureSource = "resources/states/newGameBright.png";
+    String statsBrightTextureSource = "resources/states/statsBright.png";
+    String exitBrightTextureSource = "resources/states/exitBright.png";
+
     int activeTexture = 0;
 
     float[] vertices = new float[]{

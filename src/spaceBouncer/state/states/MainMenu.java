@@ -55,6 +55,11 @@ public class MainMenu implements MainMenuFeatures {
     }
 
     public void update(){
+        listenForChangeState();
+        listenForChangeColor();
+    }
+
+    private void listenForChangeState() {
         if(MouseInput.isMousePressed(GLFW_MOUSE_BUTTON_1)){
             for(int i = 0; i < menuTileList.size(); i++){
                 if(MousePositionInput.isCursorIn(menuTileRectList.get(i))){
@@ -65,6 +70,31 @@ public class MainMenu implements MainMenuFeatures {
                     }
                 }
             }
+        }
+    }
+
+    private void listenForChangeColor() {
+        for(int i = 0; i < menuTileList.size(); i++){
+            if(MousePositionInput.isCursorIn(menuTileRectList.get(i))){
+                extractTextureSource(i, newGameBrightTextureSource, statsBrightTextureSource, exitBrightTextureSource);
+            }
+            else {
+                extractTextureSource(i, newGameTextureSource, statsTextureSource, exitTextureSource);
+            }
+        }
+    }
+
+    private void extractTextureSource(int i, String newGameTextureSource, String statsTextureSource, String exitTextureSource) {
+        switch (menuTileList.get(i).getMenuState()) {
+            case START_GAME:
+                menuTileList.get(i).setTexture(newGameTextureSource);
+                break;
+            case STATS:
+                menuTileList.get(i).setTexture(statsTextureSource);
+                break;
+            case QUIT:
+                menuTileList.get(i).setTexture(exitTextureSource);
+                break;
         }
     }
 
