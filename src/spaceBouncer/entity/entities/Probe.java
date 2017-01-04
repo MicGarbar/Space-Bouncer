@@ -23,7 +23,7 @@ public class Probe extends Entity implements EntityFeatures {
     public void update() {
         if(start){
             position.x += deltaX;
-            position.y = (float) (5*Math.sin(0.2*position.x));
+            position.y = (float) (amplitude * Math.sin(0.2*position.x));
             rotationZ += 1;
         }
     }

@@ -9,7 +9,7 @@ public interface PlanetFeatures {
     float earthSize = 3.0f;
     float marsSize = 2.2f;
     float jupiterSize = 6.0f;
-    float saturnSize = 5.5f;
+    float saturnSize = 6.0f;
     float uranusSize = 4.0f;
     float neptuneSize = 4.0f;
 
@@ -33,9 +33,9 @@ public interface PlanetFeatures {
             uranusVelocity, neptuneVelocity
     };
 
-    int mercuryTriggerAttitude = 57;
-    int venusTriggerAttitude = 108;
-    int earthTriggerAttitude = 149;
+    int mercuryTriggerAttitude = 57 - 10;
+    int venusTriggerAttitude = 108 - 10;
+    int earthTriggerAttitude = 149 - 10;
     int marsTriggerAttitude = 228;
     int jupiterTriggerAttitude = 778;
     int saturnTriggerAttitude = 1426;

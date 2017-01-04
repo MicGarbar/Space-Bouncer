@@ -18,7 +18,7 @@ public interface EarthFeatures {
      * PLANES
      */
 
-    int planesAmount = 0;
+    int planesAmount = 10;
 
     float planeCollisionFactor = -0.65f;
 
@@ -33,7 +33,7 @@ public interface EarthFeatures {
      * BALLOONS
      */
 
-    int balloonsAmount = 0;
+    int balloonsAmount = 10;
 
     float balloonCollisionFactor = -0.5f;
 
@@ -50,7 +50,7 @@ public interface EarthFeatures {
      * CLOUDS
      */
 
-    int cloudsAmount = 0;
+    int cloudsAmount = 10;
 
     float cloudCollisionHazeFactor = 0.3f;
 
@@ -67,7 +67,7 @@ public interface EarthFeatures {
      * BIRDS
      */
 
-    int birdsAmount = 0;
+    int birdsAmount = 10;
 
     float birdCollisionFactor = -0.3f;
 

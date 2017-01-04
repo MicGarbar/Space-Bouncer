@@ -14,8 +14,9 @@ public class ProbeGenerator extends Generator {
 
         for(int i = 0; i < amount; i++){
             Probe probe = new Probe();
-            probe.setTriggerAttitude(random.nextInt(300) + 130);
+            probe.setTriggerAttitude(random.nextInt(500) + 130);
             probe.setPosition(new Vector(Math.random() > 0.5 ? -20.0f : 20.0f, random.nextFloat()*10));
+            probe.setAmplitude(random.nextInt(10) + 1);
             probe.setDeltaX(probe.getPosition().x < 0 ?
                     random.nextFloat()*0.1f :
                     random.nextFloat()*0.1f - 0.1f);

@@ -20,6 +20,7 @@ public class PlaneGenerator extends Generator {
             plane.setTriggerAttitude(random.nextInt(2000) + 9000);
             plane.setRotationY(Math.random() > 0.5 ? 0 : 180);
             plane.setPosition(new Vector(plane.getRotationY() == 0 ? -20.0f : 20.0f, random.nextFloat()*10));
+            plane.setAmplitude(random.nextInt(5));
             plane.setDeltaX(plane.getRotationY() == 0 ?
                     random.nextFloat()*0.1f :
                     random.nextFloat()*0.1f - 0.1f);

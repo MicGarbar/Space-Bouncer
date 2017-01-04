@@ -23,7 +23,7 @@ public class Asteroid extends Entity implements EntityFeatures {
     public void update() {
         if(start){
             position.x += deltaX;
-            position.y = (float) (2*(Math.sin(0.1*position.x)));
+            position.y = (float) (amplitude * (Math.sin(0.1*position.x)));
             rotationZ += 2;
         }
     }

@@ -6,6 +6,9 @@ import spaceBouncer.render.VertexArrayObject;
 import spaceBouncer.utility.maths.Vector;
 import spaceBouncer.utility.projections.Camera;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Haze implements HazeFeatures {
 
     private Vector position;
@@ -13,6 +16,9 @@ public class Haze implements HazeFeatures {
     private Shader shader;
 
     private float hazeRecallTime = 1.0f;
+    private float red = 1.0f;
+    private float green = 1.0f;
+    private float blue = 1.0f;
 
     public Haze(){
         position = new Vector(0.0f, 0.0f);
@@ -29,6 +35,9 @@ public class Haze implements HazeFeatures {
     public void render(){
         shader.activate();
         shader.setFloatUniform("hazeRecallTime", hazeRecallTime);
+        shader.setFloatUniform("red", red);
+        shader.setFloatUniform("green", green);
+        shader.setFloatUniform("blue", blue);
         vao.bind();
         vao.draw();
         vao.unbind();
@@ -37,5 +46,11 @@ public class Haze implements HazeFeatures {
 
     public void setHazeRecallTime(float hazeRecallTime) {
         this.hazeRecallTime = hazeRecallTime;
+    }
+
+    public void setColor(float red, float green, float blue){
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
     }
 }

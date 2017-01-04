@@ -6,6 +6,17 @@ public interface SpaceFeatures {
 
     float screenScaleFactor = (float) GameLoop.HEIGHT / (float) GameLoop.WIDTH;
 
+    int MERCURY = 0;
+    int VENUS = 1;
+    int EARTH = 2;
+    int MARS = 3;
+    int JUPITER = 4;
+    int SATURN = 5;
+    int URANUS = 6;
+    int NEPTUNE = 7;
+
+    int extraAsteroidsWhenSaturnHit = 20;
+
     String vertexSource = "shader/vertex/space.vert";
     String fragmentSource = "shader/fragment/space.frag";
     String textureSource = "resources/space.png";
@@ -18,7 +29,9 @@ public interface SpaceFeatures {
      * PROBES
      */
 
-    int probesAmount = 0;
+    int probesAmount = 20;
+
+    float probeCollisionFactor = -0.5f;
 
     String probeTexture0 = "resources/probe/probe0.png";
     String probeTexture1 = "resources/probe/probe1.png";
@@ -33,7 +46,9 @@ public interface SpaceFeatures {
      * ASTEROIDS
      */
 
-    int asteroidsAmount = 0;
+    int asteroidsAmount = 20;
+
+    float asteroidCollisionFactor = -0.6f;
 
     String asteroidTexture0 = "resources/asteroid/asteroid0.png";
     String asteroidTexture1 = "resources/asteroid/asteroid1.png";
@@ -46,7 +61,9 @@ public interface SpaceFeatures {
      * COMETS
      */
 
-    int cometsAmount = 0;
+    int cometsAmount = 10;
+
+    float cometCollisionFactor = -0.7f;
 
     String cometTexture0 = "resources/comet/comet0.png";
     String cometTexture1 = "resources/comet/comet1.png";

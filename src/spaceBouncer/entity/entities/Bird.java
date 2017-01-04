@@ -23,7 +23,7 @@ public class Bird extends Entity implements EntityFeatures {
     public void update(){
         if(start){
             position.x += deltaX;
-            position.y = (float) (5*Math.sin(0.5*position.x)) + 1.0f;
+            position.y = (float) (amplitude * Math.sin(0.5*position.x)) + 1.0f;
         }
     }
 

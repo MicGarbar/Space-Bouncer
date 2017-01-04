@@ -21,6 +21,7 @@ public abstract class Entity {
     protected float deltaY = 0;
 
     protected float size = 0;
+    protected int amplitude = 0;
 
     protected int triggerAttitude = 0;
 
@@ -106,5 +107,13 @@ public abstract class Entity {
 
     public void setVao(VertexArrayObject vao) {
         this.vao = vao;
+    }
+
+    public int getAmplitude() {
+        return amplitude;
+    }
+
+    public void setAmplitude(int amplitude) {
+        this.amplitude = amplitude;
     }
 }
