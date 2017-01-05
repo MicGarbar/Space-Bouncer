@@ -4,6 +4,8 @@ public enum State {
 
     MAIN_MENU,
     THE_EARTH,
-    SPACE
+    SPACE,
+    STATS,
+    QUIT
 
 }

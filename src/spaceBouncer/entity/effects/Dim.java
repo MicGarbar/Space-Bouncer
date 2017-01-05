@@ -14,6 +14,9 @@ public class Dim implements DimFeatures {
 
     private float dimRecallTime = 1.0f;
     private float deltaRecallTime = -0.01f;
+    private float red = 1.0f;
+    private float green = 1.0f;
+    private float blue = 1.0f;
 
     public Dim(){
         position = new Vector(0.0f, 0.0f);
@@ -34,10 +37,19 @@ public class Dim implements DimFeatures {
     public void render(){
         shader.activate();
         shader.setFloatUniform("dimRecallTime", dimRecallTime);
+        shader.setFloatUniform("red", red);
+        shader.setFloatUniform("green", green);
+        shader.setFloatUniform("blue", blue);
         vao.bind();
         vao.draw();
         vao.unbind();
         shader.deactivate();
+    }
+
+    public void setColor(float red, float green, float blue){
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
     }
 
 }

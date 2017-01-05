@@ -12,6 +12,7 @@ import spaceBouncer.state.states.Earth;
 import spaceBouncer.state.states.MainMenu;
 import spaceBouncer.state.states.Space;
 import spaceBouncer.state.statesEnum.State;
+import spaceBouncer.utility.projections.Message;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL.createCapabilities;
@@ -114,31 +115,64 @@ public class GameLoop implements Runnable {
 
         switch (gameState){
             case MAIN_MENU: mainMenu.update(); break;
-            case THE_EARTH:
-                earth.update();
-
-                if(earth.isLevelFailed()){
-                    dim.update();
-                }
-
-                infoPicture.setPicturePointer(earth.getPlayerHeight());
-                warningPicture.setPicturePointer(earth.getPlayerHeight());
-                infoPicture.update();
-                warningPicture.update();
-                break;
-            case SPACE:
-                space.update();
-
-                if(space.isLevelFailed()){
-                    dim.update();
-                }
-
-                infoPicture.setPicturePointer(space.getPlayerDistance());
-                warningPicture.setPicturePointer(space.getPlayerDistance());
-                infoPicture.update();
-                warningPicture.update();
-                break;
+            case THE_EARTH: earthUpdate(); break;
+            case SPACE: spaceUpdate(); break;
+            case QUIT: gameThread.setGameRunning(false); break;
         }
+    }
+
+    private void spaceUpdate() {
+        space.update();
+
+        if(space.isLevelFailed()){
+            dim.update();
+
+            if(KeyInput.isKeyDown(GLFW_KEY_SPACE)){
+                gameState = State.MAIN_MENU;
+                newGame();
+            }
+        }
+
+        if(space.isLevelAccomplished()){
+            dim.update();
+
+            if(KeyInput.isKeyDown(GLFW_KEY_SPACE)){
+                gameState = State.MAIN_MENU;
+                newGame();
+            }
+        }
+
+        infoPicture.setPicturePointer(space.getPlayerDistance());
+        warningPicture.setPicturePointer(space.getPlayerDistance());
+        infoPicture.update();
+        warningPicture.update();
+    }
+
+    private void earthUpdate() {
+        earth.update();
+
+        if(earth.isLevelFailed()){
+            dim.update();
+
+            if(KeyInput.isKeyDown(GLFW_KEY_SPACE)){
+                gameState = State.MAIN_MENU;
+                newGame();
+            }
+        }
+
+        if(earth.isLevelAccomplished()){
+            dim.update();
+
+            if(KeyInput.isKeyDown(GLFW_KEY_SPACE)){
+                gameState = State.SPACE;
+                nextLevel();
+            }
+        }
+
+        infoPicture.setPicturePointer(earth.getPlayerHeight());
+        warningPicture.setPicturePointer(earth.getPlayerHeight());
+        infoPicture.update();
+        warningPicture.update();
     }
 
     private void render(){
@@ -146,40 +180,68 @@ public class GameLoop implements Runnable {
 
         switch (gameState){
             case MAIN_MENU: mainMenu.render(); break;
-            case THE_EARTH:
-                earth.render();
-
-                if(earth.isLevelFailed()){
-                    dim.render();
-                    renderDefeatMessage();
-                }
-
-                bitmapFont.render(String.valueOf(earth.getPlayerHeight() + " m"), 0.6f, 0.35f);
-                infoPicture.render();
-                warningPicture.render();
-                break;
-            case SPACE:
-                space.render();
-
-                if(space.isLevelFailed()){
-                    dim.render();
-                    renderDefeatMessage();
-                }
-
-                bitmapFont.render("mln km", 0.55f, 0.25f);
-                bitmapFont.render(String.valueOf(space.getPlayerDistance()), 0.65f, 0.35f);
-                infoPicture.render();
-                warningPicture.render();
-                break;
+            case THE_EARTH: earthRender(); break;
+            case SPACE: spaceRender(); break;
         }
 
         glfwSwapBuffers(windowID);
     }
 
-    private void renderDefeatMessage() {
-        bitmapFont.render("DEFEAT", -0.4f, 0.15f);
-        bitmapFont.render("PRESS UP ARROW", -0.6f, 0.0f);
-        bitmapFont.render("TO CONTINUE", -0.52f, -0.1f);
+    private void spaceRender() {
+        space.render();
+
+        if(space.isLevelFailed()){
+            dim.setColor(0.1f, 0.1f, 1.0f);
+            dim.render();
+            Message.defeatMessage(bitmapFont);
+        }
+
+        if(space.isLevelAccomplished()){
+            dim.setColor(0.1f, 1.0f, 0.1f);
+            dim.render();
+            Message.spaceAccomplished(bitmapFont);
+        }
+
+        bitmapFont.render("mln km", 0.55f, 0.25f);
+        bitmapFont.render(String.valueOf(space.getPlayerDistance()), 0.65f, 0.35f);
+        infoPicture.render();
+        warningPicture.render();
+    }
+
+    private void earthRender() {
+        earth.render();
+
+        if(earth.isLevelFailed()){
+            dim.setColor(0.1f, 0.1f, 1.0f);
+            dim.render();
+            Message.defeatMessage(bitmapFont);
+        }
+
+        if(earth.isLevelAccomplished()){
+            dim.setColor(0.1f, 1.0f, 0.1f);
+            dim.render();
+            Message.earthAccomplished(bitmapFont);
+        }
+
+        bitmapFont.render(String.valueOf(earth.getPlayerHeight() + " m"), 0.6f, 0.35f);
+        infoPicture.render();
+        warningPicture.render();
+    }
+
+    private void newGame(){
+        earth = new Earth();
+        earth.setPlayerHeight(0);
+        earth.setLevelAccomplished(false);
+        infoPicture.reset();
+        warningPicture.reset();
+    }
+
+    private void nextLevel(){
+        space = new Space();
+        space.setPlayerDistance(0);
+        space.setLevelAccomplished(false);
+        infoPicture.reset();
+        warningPicture.reset();
     }
 
     public static void main(String[] args){

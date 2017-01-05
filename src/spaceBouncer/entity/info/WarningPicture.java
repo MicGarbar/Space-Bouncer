@@ -1,32 +1,22 @@
 package spaceBouncer.entity.info;
 
-import spaceBouncer.deploy.GameLoop;
-import spaceBouncer.entity.features.WarningPictureFeatures;
+import spaceBouncer.entity.features.PictureFeatures;
 import spaceBouncer.render.Shader;
 import spaceBouncer.render.Texture;
 import spaceBouncer.render.VertexArrayObject;
-import spaceBouncer.state.statesEnum.State;
-import spaceBouncer.utility.loaders.File;
 
-public class WarningPicture extends Picture implements WarningPictureFeatures {
+public class WarningPicture extends Picture implements PictureFeatures {
 
     public WarningPicture(){
         texture = new Texture(plainTextureSource);
-        vao = new VertexArrayObject(vertices, indices, textureCoordinates);
+        vao = new VertexArrayObject(warningPictureVertices, indices, textureCoordinates);
         shader = new Shader(vertexSource, fragmentSource);
 
         shader.setSamplerUniform(sampler, activeTexture);
     }
 
     public void update(){
-        String path = "";
-        if(GameLoop.gameState == State.THE_EARTH) path = "resources/infoPictures/";
-        else if(GameLoop.gameState == State.SPACE) path = "resources/infoPictures/space/";
-
-        String currentPath = path + picturePointer + ".png";
-        if(File.exists(currentPath)) {
-            texture = new Texture(currentPath);
-        } else return;
+        super.update(warningPictures);
     }
 
     public void render(){

@@ -31,6 +31,7 @@ public class Earth implements EarthFeatures {
     private List<Generator> generatorList;
 
     private boolean levelFailed = false;
+    private boolean levelAccomplished = false;
 
     public Earth(){
         vao = new VertexArrayObject(vertices, indices, textureCoordinates);
@@ -81,6 +82,11 @@ public class Earth implements EarthFeatures {
 
         player.update();
         haze.update();
+
+        if(getPlayerHeight() >= 12000){
+            levelAccomplished = true;
+            player.promote();
+        }
 
         checkCollision();
         checkIfFallen();
@@ -133,7 +139,19 @@ public class Earth implements EarthFeatures {
         return this.player.getHeight();
     }
 
+    public void setPlayerHeight(int height){
+        this.player.setHeight(height);
+    }
+
     public boolean isLevelFailed() {
         return levelFailed;
+    }
+
+    public boolean isLevelAccomplished() {
+        return levelAccomplished;
+    }
+
+    public void setLevelAccomplished(boolean levelAccomplished) {
+        this.levelAccomplished = levelAccomplished;
     }
 }

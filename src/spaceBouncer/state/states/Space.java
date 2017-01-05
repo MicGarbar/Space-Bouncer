@@ -1,5 +1,6 @@
 package spaceBouncer.state.states;
 
+import spaceBouncer.entity.effects.Dim;
 import spaceBouncer.entity.effects.Haze;
 import spaceBouncer.entity.entities.*;
 import spaceBouncer.entity.generators.*;
@@ -35,6 +36,7 @@ public class Space implements SpaceFeatures {
     private Haze haze;
 
     private boolean levelFailed = false;
+    private boolean levelAccomplished = false;
     private boolean extraAsteroidsInSaturn = false;
 
     public Space(){
@@ -98,6 +100,11 @@ public class Space implements SpaceFeatures {
 
         player.update();
         haze.update();
+
+        if(getPlayerDistance() >= 10){
+            levelAccomplished = true;
+            player.promote();
+        }
 
         checkCollision();
         checkIfFallen();
@@ -185,8 +192,17 @@ public class Space implements SpaceFeatures {
         return this.levelFailed;
     }
 
+    public boolean isLevelAccomplished() { return this.levelAccomplished; }
+
     public int getPlayerDistance(){
         return (int) (this.player.getHeight() * 0.25);
     }
 
+    public void setPlayerDistance(int height){
+        this.player.setHeight(height);
+    }
+
+    public void setLevelAccomplished(boolean levelAccomplished) {
+        this.levelAccomplished = levelAccomplished;
+    }
 }

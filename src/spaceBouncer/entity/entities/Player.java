@@ -13,7 +13,7 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class Player extends Entity implements EntityFeatures {
 
-    private float height = 0.0f;
+    private float height = 11990.0f;//4990.0f * 100/25;
     private float deltaH = 0;
     private boolean bouncing = true;
 
@@ -69,11 +69,19 @@ public class Player extends Entity implements EntityFeatures {
         bouncing = false;
     }
 
+    public void promote(){
+        deltaH = 0.0f;
+        deltaY += 0.02f;
+        bouncing = false;
+    }
+
     public int getHeight(){
         return (int) this.height;
     }
 
-    public int getDistance() { return (int) this.height * 15/100; }
+    public void setHeight(int height){
+        this.height = height;
+    }
 
     public boolean isBouncing() {
         return bouncing;
