@@ -1,6 +1,10 @@
 package spaceBouncer.utility.loaders;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class File {
 
@@ -27,32 +31,6 @@ public class File {
         return source.toString();
     }
 
-    public static String loadOneLine(String filePath, int lineNumber){
-        StringBuilder source = new StringBuilder();
-
-        try{
-            String line = "";
-            int lineCounter = 0;
-            BufferedReader reader = new BufferedReader(new FileReader(filePath));
-
-            while((line = reader.readLine()) != null){
-                lineCounter++;
-
-                if(lineNumber == lineCounter){
-                    source.append(line);
-                }
-            }
-
-            reader.close();
-        } catch (IOException ioe){
-            ioe.printStackTrace();
-            System.err.println("Odczytanie pliku nie powiodło się z następującym wyjątkiem: " + ioe.getMessage());
-            System.exit(-1);
-        }
-
-        return source.toString();
-    }
-
     public static int linesAmount(String filePath){
         int linesAmount = 0;
 
@@ -63,6 +41,7 @@ public class File {
                 linesAmount++;
             }
 
+            reader.close();
         } catch (IOException ioe){
             ioe.printStackTrace();
             System.err.println("Odczytanie pliku nie powiodło się z następującym wyjątkiem: " + ioe.getMessage());
@@ -70,6 +49,37 @@ public class File {
         }
 
         return linesAmount;
+    }
+
+    public static List<String> sortListByScore(String filePath){
+        ArrayList<String> scoreList = new ArrayList<>();
+
+        try{
+            String line = "";
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+
+            while((line = reader.readLine()) != null){
+                scoreList.add(line);
+            }
+
+            Comparator<String> scoreComparator = new Comparator<String>() {
+                @Override
+                public int compare(String score1, String score2) {
+                    return Integer.valueOf(score1.substring(18)).compareTo(Integer.valueOf(score2.substring(18)));
+                }
+            };
+
+            Collections.sort(scoreList, scoreComparator);
+            Collections.reverse(scoreList);
+
+            reader.close();
+        } catch (IOException ioe){
+            ioe.printStackTrace();
+            System.err.println("Odczytanie pliku nie powiodło się z następującym wyjątkiem: " + ioe.getMessage());
+            System.exit(-1);
+        }
+
+        return scoreList;
     }
 
     public static void save(String what, String where){

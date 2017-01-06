@@ -251,17 +251,7 @@ public class GameLoop implements Runnable {
 
     private void statsRender(){
         stats.render();
-        bitmapFont.render("STATYSTYKI", -0.3f, 0.35f, 0.2f, false);
-        bitmapFont.render("ZIEMIA", -0.55f, 0.2f, 0.15f, false);
-        bitmapFont.render("KOSMOS", 0.25f, 0.2f, 0.15f, false);
-        for(int i = 1; i <= 8; i++){
-            if(i <= File.linesAmount("files/earthStats.txt")) {
-                bitmapFont.render(File.loadOneLine("files/earthStats.txt", i), -0.8f, 0.1f - (((float) i) * 0.05f), 0.1f, false);
-            }
-            if(i <= File.linesAmount("files/spaceStats.txt")) {
-                bitmapFont.render(File.loadOneLine("files/spaceStats.txt", i), 0.1f, 0.1f - (((float) i) * 0.05f), 0.1f, false);
-            }
-        }
+        Message.stats(bitmapFont);
     }
 
     private void newGame(){
