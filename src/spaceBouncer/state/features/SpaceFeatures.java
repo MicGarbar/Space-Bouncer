@@ -6,6 +6,8 @@ public interface SpaceFeatures {
 
     float screenScaleFactor = (float) GameLoop.HEIGHT / (float) GameLoop.WIDTH;
 
+    int FINISH_DISTANCE = 5000;
+
     int MERCURY = 0;
     int VENUS = 1;
     int EARTH = 2;

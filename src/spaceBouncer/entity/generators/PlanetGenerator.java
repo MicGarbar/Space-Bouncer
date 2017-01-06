@@ -14,11 +14,13 @@ public class PlanetGenerator extends Generator implements PlanetFeatures {
 
         for(int i = 0; i < planetsAmount; i++){
             Planet planet = new Planet();
+            planet.setPosition(new Vector(random.nextFloat()*16 - 16.0f, 16.0f));
             planet.setVao(new VertexArrayObject(planetsVertices[i], indices, textureCoordinates));
+            planet.setShader();
+            planet.setProjection();
             planet.setSize(planetsSize[i]);
             planet.setTexture(planetsTextureSources[i]);
             planet.setTriggerAttitude(planetsTriggerAttitude[i]);
-            planet.setPosition(new Vector(random.nextFloat()*16 - 16.0f, 16.0f));
             planet.setDeltaY(planetVelocities[i]);
             entities.add(planet);
         }

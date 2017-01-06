@@ -64,7 +64,7 @@ public class MainMenu implements MainMenuFeatures {
             for(int i = 0; i < menuTileList.size(); i++){
                 if(MousePositionInput.isCursorIn(menuTileRectList.get(i))){
                     switch (menuTileList.get(i).getMenuState()){
-                        case START_GAME: GameLoop.gameState = State.THE_EARTH; break;
+                        case START_GAME: GameLoop.gameState = State.SPACE; break;
                         case STATS: System.out.println("STATS"); break;
                         case QUIT: GameLoop.gameState = State.QUIT; break;
                     }

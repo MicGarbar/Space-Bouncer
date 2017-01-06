@@ -83,7 +83,7 @@ public class Earth implements EarthFeatures {
         player.update();
         haze.update();
 
-        if(getPlayerHeight() >= 12000){
+        if(getPlayerHeight() >= FINISH_HEIGHT){
             levelAccomplished = true;
             player.promote();
         }
@@ -131,7 +131,10 @@ public class Earth implements EarthFeatures {
         if(generatorList.get(i) instanceof PlaneGenerator) collisionFactor = planeCollisionFactor;
         if(generatorList.get(i) instanceof BalloonGenerator) collisionFactor = balloonCollisionFactor;
         if(generatorList.get(i) instanceof BirdGenerator) collisionFactor = birdCollisionFactor;
-        if(generatorList.get(i) instanceof CloudGenerator) haze.setHazeRecallTime(cloudCollisionHazeFactor);
+        if(generatorList.get(i) instanceof CloudGenerator) {
+            haze.setHazeRecallTime(cloudCollisionHazeFactor);
+            collisionFactor = player.getDeltaY();
+        }
         return collisionFactor;
     }
 

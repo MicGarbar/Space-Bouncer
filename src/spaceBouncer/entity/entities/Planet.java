@@ -8,11 +8,7 @@ import spaceBouncer.utility.projections.Camera;
 
 public class Planet extends Entity implements EntityFeatures {
 
-    public Planet(){
-        shader = new Shader(vertexSource, fragmentSource);
-
-        shader.setMatrixUniform(projectionMatrix, Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
-    }
+    public Planet(){}
 
     public void update() {
         if(start){
@@ -29,5 +25,13 @@ public class Planet extends Entity implements EntityFeatures {
     public void setTexture(String texturePath){
         texture = new Texture(texturePath);
         shader.setSamplerUniform(sampler, activeTexture);
+    }
+
+    public void setShader(){
+        shader = new Shader(vertexSource, fragmentSource);
+    }
+
+    public void setProjection(){
+        shader.setMatrixUniform(projectionMatrix, Camera.orthographicProjection(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
     }
 }

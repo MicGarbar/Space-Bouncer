@@ -33,9 +33,9 @@ public interface PlanetFeatures {
             uranusVelocity, neptuneVelocity
     };
 
-    int mercuryTriggerAttitude = 57 - 10;
-    int venusTriggerAttitude = 108 - 10;
-    int earthTriggerAttitude = 149 - 10;
+    int mercuryTriggerAttitude = 40;
+    int venusTriggerAttitude = 90;
+    int earthTriggerAttitude = 130;
     int marsTriggerAttitude = 228;
     int jupiterTriggerAttitude = 778;
     int saturnTriggerAttitude = 1426;

@@ -101,7 +101,7 @@ public class Space implements SpaceFeatures {
         player.update();
         haze.update();
 
-        if(getPlayerDistance() >= 10){
+        if(getPlayerDistance() >= FINISH_DISTANCE){
             levelAccomplished = true;
             player.promote();
         }
@@ -157,6 +157,7 @@ public class Space implements SpaceFeatures {
             for(int j = 0; j < generatorList.get(i).getEntities().size(); j++){
                 if(Physics.collision(player, generatorList.get(i).getEntities().get(j))){
                     planetCollisionService(j);
+                    collisionFactor = player.getDeltaY();
                 }
             }
         }

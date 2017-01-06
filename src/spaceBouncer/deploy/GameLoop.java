@@ -12,7 +12,12 @@ import spaceBouncer.state.states.Earth;
 import spaceBouncer.state.states.MainMenu;
 import spaceBouncer.state.states.Space;
 import spaceBouncer.state.statesEnum.State;
+import spaceBouncer.utility.loaders.File;
 import spaceBouncer.utility.projections.Message;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL.createCapabilities;
@@ -28,6 +33,9 @@ public class GameLoop implements Runnable {
     public static final int HEIGHT = 720;
     final String TITLE = "Space Bouncer";
     final String THREAD_NAME = "Space Bouncer Thread";
+    final String DATE_FORMAT = "dd/MM/yyyy HH:mm";
+    final String SPACE_STATS_FILE = "files/spaceStats.txt";
+    final String EARTH_STATS_FILE = "files/earthStats.txt";
 
     private GameThread gameThread;
     private MainMenu mainMenu;
@@ -130,6 +138,7 @@ public class GameLoop implements Runnable {
             if(KeyInput.isKeyDown(GLFW_KEY_SPACE)){
                 gameState = State.MAIN_MENU;
                 newGame();
+                saveStats(space.getPlayerDistance(), SPACE_STATS_FILE);
             }
         }
 
@@ -139,6 +148,7 @@ public class GameLoop implements Runnable {
             if(KeyInput.isKeyDown(GLFW_KEY_SPACE)){
                 gameState = State.MAIN_MENU;
                 newGame();
+                saveStats(space.getPlayerDistance(), SPACE_STATS_FILE);
             }
         }
 
@@ -157,6 +167,7 @@ public class GameLoop implements Runnable {
             if(KeyInput.isKeyDown(GLFW_KEY_SPACE)){
                 gameState = State.MAIN_MENU;
                 newGame();
+                saveStats(earth.getPlayerHeight(), EARTH_STATS_FILE);
             }
         }
 
@@ -166,6 +177,7 @@ public class GameLoop implements Runnable {
             if(KeyInput.isKeyDown(GLFW_KEY_SPACE)){
                 gameState = State.SPACE;
                 nextLevel();
+                saveStats(earth.getPlayerHeight(), EARTH_STATS_FILE);
             }
         }
 
@@ -202,7 +214,7 @@ public class GameLoop implements Runnable {
             Message.spaceAccomplished(bitmapFont);
         }
 
-        bitmapFont.render("mln km", 0.55f, 0.25f);
+        bitmapFont.render("mln km", 0.55f, 0.28f);
         bitmapFont.render(String.valueOf(space.getPlayerDistance()), 0.65f, 0.35f);
         infoPicture.render();
         warningPicture.render();
@@ -242,6 +254,10 @@ public class GameLoop implements Runnable {
         space.setLevelAccomplished(false);
         infoPicture.reset();
         warningPicture.reset();
+    }
+
+    private void saveStats(int stats, String file){
+        File.save(String.valueOf(new SimpleDateFormat(DATE_FORMAT).format(new Date()) + ": " + stats), file);
     }
 
     public static void main(String[] args){

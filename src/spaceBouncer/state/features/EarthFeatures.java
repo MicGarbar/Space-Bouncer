@@ -6,6 +6,8 @@ public interface EarthFeatures {
 
     float screenScaleFactor = (float) GameLoop.HEIGHT / (float) GameLoop.WIDTH;
 
+    int FINISH_HEIGHT = 12000;
+
     String vertexSource = "shader/vertex/earth.vert";
     String fragmentSource = "shader/fragment/earth.frag";
     String textureSource = "resources/earth.png";
