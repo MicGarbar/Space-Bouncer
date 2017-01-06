@@ -37,10 +37,10 @@ public class BitmapFont {
         glBindTexture(GL_TEXTURE_2D, 0);
     }
 
-    public void render(String stringToRender, float x, float y){
-        renderFontBackground();
+    public void render(String stringToRender, float x, float y, float size, boolean withFontBackground){
+        if(withFontBackground) renderFontBackground();
 
-        renderString(stringToRender, fontTexture, 16, x, y, 0.15f, 0.15f);
+        renderString(stringToRender, fontTexture, 16, x, y, size, size);
     }
 
     private void renderFontBackground() {

@@ -27,6 +27,51 @@ public class File {
         return source.toString();
     }
 
+    public static String loadOneLine(String filePath, int lineNumber){
+        StringBuilder source = new StringBuilder();
+
+        try{
+            String line = "";
+            int lineCounter = 0;
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+
+            while((line = reader.readLine()) != null){
+                lineCounter++;
+
+                if(lineNumber == lineCounter){
+                    source.append(line);
+                }
+            }
+
+            reader.close();
+        } catch (IOException ioe){
+            ioe.printStackTrace();
+            System.err.println("Odczytanie pliku nie powiodło się z następującym wyjątkiem: " + ioe.getMessage());
+            System.exit(-1);
+        }
+
+        return source.toString();
+    }
+
+    public static int linesAmount(String filePath){
+        int linesAmount = 0;
+
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+
+            while(reader.readLine() != null){
+                linesAmount++;
+            }
+
+        } catch (IOException ioe){
+            ioe.printStackTrace();
+            System.err.println("Odczytanie pliku nie powiodło się z następującym wyjątkiem: " + ioe.getMessage());
+            System.exit(-1);
+        }
+
+        return linesAmount;
+    }
+
     public static void save(String what, String where){
         StringBuilder source = new StringBuilder();
 
@@ -36,7 +81,7 @@ public class File {
             }
 
             BufferedWriter writer = new BufferedWriter(new FileWriter(where));
-            source.append(what).append("\n");
+            source.insert(0, what + "\n");
             writer.write(source.toString());
 
             writer.flush();

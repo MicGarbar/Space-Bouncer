@@ -29,6 +29,7 @@ public class MenuTile implements MenuTileFeatures {
             case HEADING: texture = new Texture(headingTextureSource); break;
             case START_GAME: texture = new Texture(startGameTextureSource); break;
             case STATS: texture = new Texture(statsTextureSource); break;
+            case BACK: texture = new Texture(backTextureSource); break;
             case QUIT: texture = new Texture(quitTextureSource); break;
         }
 

@@ -11,6 +11,7 @@ import spaceBouncer.render.BitmapFont;
 import spaceBouncer.state.states.Earth;
 import spaceBouncer.state.states.MainMenu;
 import spaceBouncer.state.states.Space;
+import spaceBouncer.state.states.Stats;
 import spaceBouncer.state.statesEnum.State;
 import spaceBouncer.utility.loaders.File;
 import spaceBouncer.utility.projections.Message;
@@ -39,6 +40,7 @@ public class GameLoop implements Runnable {
 
     private GameThread gameThread;
     private MainMenu mainMenu;
+    private Stats stats;
     private Earth earth;
     private Space space;
     private BitmapFont bitmapFont;
@@ -81,6 +83,7 @@ public class GameLoop implements Runnable {
 
         bitmapFont = new BitmapFont();
         mainMenu = new MainMenu();
+        stats = new Stats();
         earth = new Earth();
         space = new Space();
         infoPicture = new InfoPicture();
@@ -125,6 +128,7 @@ public class GameLoop implements Runnable {
             case MAIN_MENU: mainMenu.update(); break;
             case THE_EARTH: earthUpdate(); break;
             case SPACE: spaceUpdate(); break;
+            case STATS: statsUpdate(); break;
             case QUIT: gameThread.setGameRunning(false); break;
         }
     }
@@ -137,8 +141,8 @@ public class GameLoop implements Runnable {
 
             if(KeyInput.isKeyDown(GLFW_KEY_SPACE)){
                 gameState = State.MAIN_MENU;
-                newGame();
                 saveStats(space.getPlayerDistance(), SPACE_STATS_FILE);
+                newGame();
             }
         }
 
@@ -147,8 +151,8 @@ public class GameLoop implements Runnable {
 
             if(KeyInput.isKeyDown(GLFW_KEY_SPACE)){
                 gameState = State.MAIN_MENU;
-                newGame();
                 saveStats(space.getPlayerDistance(), SPACE_STATS_FILE);
+                newGame();
             }
         }
 
@@ -166,8 +170,8 @@ public class GameLoop implements Runnable {
 
             if(KeyInput.isKeyDown(GLFW_KEY_SPACE)){
                 gameState = State.MAIN_MENU;
-                newGame();
                 saveStats(earth.getPlayerHeight(), EARTH_STATS_FILE);
+                newGame();
             }
         }
 
@@ -176,8 +180,8 @@ public class GameLoop implements Runnable {
 
             if(KeyInput.isKeyDown(GLFW_KEY_SPACE)){
                 gameState = State.SPACE;
-                nextLevel();
                 saveStats(earth.getPlayerHeight(), EARTH_STATS_FILE);
+                nextLevel();
             }
         }
 
@@ -187,6 +191,10 @@ public class GameLoop implements Runnable {
         warningPicture.update();
     }
 
+    private void statsUpdate(){
+        stats.update();
+    }
+
     private void render(){
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -194,6 +202,7 @@ public class GameLoop implements Runnable {
             case MAIN_MENU: mainMenu.render(); break;
             case THE_EARTH: earthRender(); break;
             case SPACE: spaceRender(); break;
+            case STATS: statsRender(); break;
         }
 
         glfwSwapBuffers(windowID);
@@ -214,8 +223,8 @@ public class GameLoop implements Runnable {
             Message.spaceAccomplished(bitmapFont);
         }
 
-        bitmapFont.render("mln km", 0.55f, 0.28f);
-        bitmapFont.render(String.valueOf(space.getPlayerDistance()), 0.65f, 0.35f);
+        bitmapFont.render("mln km", 0.55f, 0.28f, 0.15f, true);
+        bitmapFont.render(String.valueOf(space.getPlayerDistance()), 0.65f, 0.35f, 0.15f, true);
         infoPicture.render();
         warningPicture.render();
     }
@@ -235,9 +244,24 @@ public class GameLoop implements Runnable {
             Message.earthAccomplished(bitmapFont);
         }
 
-        bitmapFont.render(String.valueOf(earth.getPlayerHeight() + " m"), 0.6f, 0.35f);
+        bitmapFont.render(String.valueOf(earth.getPlayerHeight() + " m"), 0.6f, 0.35f, 0.15f, true);
         infoPicture.render();
         warningPicture.render();
+    }
+
+    private void statsRender(){
+        stats.render();
+        bitmapFont.render("STATYSTYKI", -0.3f, 0.35f, 0.2f, false);
+        bitmapFont.render("ZIEMIA", -0.55f, 0.2f, 0.15f, false);
+        bitmapFont.render("KOSMOS", 0.25f, 0.2f, 0.15f, false);
+        for(int i = 1; i <= 8; i++){
+            if(i <= File.linesAmount("files/earthStats.txt")) {
+                bitmapFont.render(File.loadOneLine("files/earthStats.txt", i), -0.8f, 0.1f - (((float) i) * 0.05f), 0.1f, false);
+            }
+            if(i <= File.linesAmount("files/spaceStats.txt")) {
+                bitmapFont.render(File.loadOneLine("files/spaceStats.txt", i), 0.1f, 0.1f - (((float) i) * 0.05f), 0.1f, false);
+            }
+        }
     }
 
     private void newGame(){

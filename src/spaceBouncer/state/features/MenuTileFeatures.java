@@ -15,6 +15,7 @@ public interface MenuTileFeatures {
     String startGameTextureSource = "resources/states/newGame.png";
     String statsTextureSource = "resources/states/stats.png";
     String quitTextureSource = "resources/states/exit.png";
+    String backTextureSource = "resources/states/back.png";
 
     int activeTexture = 0;
 
