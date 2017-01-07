@@ -1,0 +1,10 @@
+Bibliotki konieczne do poprawnego dzia³ania aplikacji:
+
+1) PNGDecoder.jar - nale¿y za³¹czyæ do œcie¿ki "classpath" projektu
+2) biblioteka OpenGL - LWJGL - nale¿y pobraæ z oficjalnej strony i za³¹czyæ kolejno:
+	-- foler "jar"
+	-- foler "native"
+	-- archiwum "src.zip"
+
+Biblioteka OpenGL nie zosta³a tutaj za³¹czona ze wzglêdu na ograniczenia objêtoœci 
+projektu w sensie zajmowanego miejsca.

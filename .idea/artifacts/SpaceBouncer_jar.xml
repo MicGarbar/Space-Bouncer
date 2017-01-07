@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="SpaceBouncer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpaceBouncer_jar</output-path>
+    <root id="archive" name="SpaceBouncer.jar">
+      <element id="module-output" name="SpaceBouncer" />
+      <element id="library" level="project" name="shader" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libraries/PNGDecoder.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libraries/lwjgl/jar/lwjgl.jar" path-in-jar="/" />
+      <element id="library" level="project" name="resources" />
+      <element id="library" level="project" name="Decoder" />
+      <element id="library" level="project" name="OpenGL" />
+      <element id="library" level="project" name="libraries" />
+    </root>
+  </artifact>
+</component>

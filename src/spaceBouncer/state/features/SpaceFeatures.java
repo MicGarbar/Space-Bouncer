@@ -31,7 +31,7 @@ public interface SpaceFeatures {
      * PROBES
      */
 
-    int probesAmount = 0;
+    int probesAmount = 30;
 
     float probeCollisionFactor = -0.5f;
 
@@ -48,7 +48,7 @@ public interface SpaceFeatures {
      * ASTEROIDS
      */
 
-    int asteroidsAmount = 0;
+    int asteroidsAmount = 30;
 
     float asteroidCollisionFactor = -0.6f;
 
@@ -63,7 +63,7 @@ public interface SpaceFeatures {
      * COMETS
      */
 
-    int cometsAmount = 0;
+    int cometsAmount = 30;
 
     float cometCollisionFactor = -0.7f;
 
