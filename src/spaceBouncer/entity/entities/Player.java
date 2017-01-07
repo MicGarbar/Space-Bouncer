@@ -13,7 +13,7 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class Player extends Entity implements EntityFeatures {
 
-    private float height = 1000.0f;//4990.0f * 100/25;
+    private float height = 0.0f;//4990.0f * 100/25;
     private float deltaH = 0;
     private boolean bouncing = true;
 
