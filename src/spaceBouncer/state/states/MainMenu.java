@@ -107,9 +107,7 @@ public class MainMenu implements MainMenuFeatures {
         texture.unbind();
         shader.deactivate();
 
-        for(MenuTile menuTile : menuTileList){
-            menuTile.render();
-        }
+        menuTileList.forEach(MenuTile::render);
     }
 
 }

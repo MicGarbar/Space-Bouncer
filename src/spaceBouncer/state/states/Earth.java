@@ -101,9 +101,7 @@ public class Earth implements EarthFeatures {
         texture.unbind();
         shader.deactivate();
 
-        for(Generator generator : generatorList){
-            generator.render();
-        }
+        generatorList.forEach(Generator::render);
 
         player.render();
         haze.render();

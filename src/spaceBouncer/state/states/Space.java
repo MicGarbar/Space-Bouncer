@@ -119,13 +119,8 @@ public class Space implements SpaceFeatures {
         texture.unbind();
         shader.deactivate();
 
-        for(Generator generator : generatorList){
-            generator.render();
-        }
-
-        for(Entity entity : uniqueEntities){
-            entity.render();
-        }
+        generatorList.forEach(Generator::render);
+        uniqueEntities.forEach(Entity::render);
 
         player.render();
         haze.render();
